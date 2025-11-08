@@ -1,0 +1,413 @@
+/*
+ * styles.css
+ * Adventora Travel Route - Premium & Elegant Style
+ * Font: Poppins
+ * Color Palette: #001f3f (Midnight Blue), #FFD700 (Gold/Aksen), #f4f4f9 (Light Gray), #2c3e50 (Darker Text)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #001f3f; /* Midnight Blue - Elegan */
+    --accent-color: #ff5722; /* Gold/Orange Aksen - Premium */
+    --text-color: #333333;
+    --light-bg: #f4f4f9;
+    --card-bg: #ffffff;
+    --transition-speed: 0.2s;
+}
+
+/* 1. Global & Typography */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* Smooth Scroll */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    /* Latar Belakang Pemandangan (Ganti URL dengan gambar Anda) */
+    background-image: url('/image/view1.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    padding-top: 40px; /* Jarak untuk Fixed Header */
+}
+
+/* 2. Header & Navigasi */
+
+/* === NAVBAR === */
+.navbar {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #007bffe6;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: 0.3s;
+  display: flex;
+  align-items: center; /* Tengah vertikal */
+}
+
+.navbar.scrolled {
+  background: #007bff26;
+}
+
+.nav-inner {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.logo-img {
+  height: 50px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #007bff26;
+}
+
+/* --- Hamburger --- */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* --- Responsive Mobile --- */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #007bffe5;
+    flex-direction: column;
+    width: 200px;
+    padding: 1rem;
+    border-radius: 0 0 0 10px;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
+
+
+/* 3. Main Container & Hero */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 5%;
+}
+
+.hero {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* 4. Search & Filter */
+.search-filter-area {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.search-input, .filter-select {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color var(--transition-speed);
+    font-family: 'Poppins', sans-serif;
+}
+
+.search-input:focus, .filter-select:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(252, 163, 17, 0.2);
+}
+
+/* 5. Route Cards Layout */
+.route-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* 6. Route Card Design */
+.route-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform var(--transition-speed) ease-out, box-shadow var(--transition-speed) ease-out;
+    opacity: 0; /* Untuk animasi saat muncul */
+    transform: translateY(20px); /* Untuk animasi saat muncul */
+}
+
+/* Hover Elegan */
+.route-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.card-content p {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+.card-content strong {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.price {
+    font-size: 1.4em;
+    color: var(--accent-color);
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+/* Tombol Premium */
+.btn-view-route {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease-in-out, transform 0.15s;
+}
+
+.btn-view-route:hover {
+    background-color: #e59300; /* Darker Gold/Orange */
+    transform: translateY(-2px);
+}
+
+/* Animasi saat elemen muncul */
+.card-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* 7. Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 4%;
+    }
+
+    .hero {
+        padding: 30px;
+        margin-bottom: 30px;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .search-filter-area {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .route-list {
+        gap: 20px;
+    }
+}
+
+/* 8. Utility & Detail Page (Reused Styles) */
+.detail-section {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.detail-section h2 {
+    color: var(--primary-color);
+    font-size: 2em;
+    margin-bottom: 20px;
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.detail-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.info-box {
+    padding: 15px;
+    border-left: 5px solid var(--primary-color);
+    background-color: var(--light-bg);
+    border-radius: 4px;
+}
+
+.info-box span {
+    display: block;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.info-box strong {
+    font-size: 1.2em;
+    color: var(--text-color);
+}
+
+.facility-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 30px;
+    padding: 0;
+}
+
+.facility-list li {
+    font-size: 1em;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.facility-list li::before {
+    content: '✅'; /* Simbol Fasilitas */
+    margin-right: 8px;
+}
+
+.stop-list {
+    list-style: none;
+    padding: 0;
+}
+
+.stop-list li {
+    border-left: 2px solid var(--accent-color);
+    padding: 10px 0 10px 20px;
+    position: relative;
+    margin-left: 10px;
+}
+
+.stop-list li:last-child {
+    border-left: none;
+}
+
+.stop-list li::before {
+    content: '📍';
+    position: absolute;
+    left: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    background-color: var(--card-bg);
+    padding: 2px;
+    border-radius: 50%;
+}
+
+.no-route-message {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: #555;
+  background: #f8f8f8;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.no-route-message a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.7rem 1.2rem;
+  background: #25D366;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.no-route-message a:hover {
+  background: #1da955;
+}
