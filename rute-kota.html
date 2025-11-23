@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <title>Travel Antar Kota Jawa Timur | Adventora Travel</title>
-  <meta name="description" content="Travel antar kota seluruh Jawa Timur: door-to-door, harga transparan dan cepat setiap hari bersama Adventora Travel.">
-  <meta name="keywords" content="travel Jawa Timur, travel antar kota, travel murah, Adventora Travel">
+<title>Travel Antar Kota Jawa & Bali | Adventora Travel Cepat & Nyaman</title>
+<meta name="description" content="Travel antar kota di Jawa & Bali: door-to-door, harga murah, bisa nego dan cepat setiap hari bersama Adventora.id.">
+<meta name="keywords" content="travel Jawa, travel Bali, travel antar kota, travel murah, Adventora Travel">
+  
 
   <meta name="application-name" content="Adventora">
   <meta name="apple-mobile-web-app-title" content="Adventora">
@@ -37,16 +37,78 @@
       title: "Travel Jember Surabaya Murah | Antar Jemput Rumah",
       desc: "Travel Jember Surabaya dengan harga bersahabat & penjemputan fleksibel setiap hari."
     },
-    "Malang-Surabaya": {
-      title: "Travel Malang Surabaya | Armada Nyaman & Terawat",
-      desc: "Travel Malang Surabaya cepat, aman, unit terawat dan driver profesional."
+    "Jember-Bali": {
+      title: "Travel Jember Bali Murah | Antar Jemput Rumah",
+      desc: "Travel Jember Bali dengan harga bersahabat & penjemputan fleksibel setiap hari."
     },
-    "Banyuwangi-Surabaya": {
-      title: "Travel Banyuwangi Surabaya | Door to Door Aman & Hemat",
-      desc: "Travel Banyuwangi Surabaya dengan penjemputan rumah dan harga jelas setiap hari."
-    }
+    "Jember-Bondowoso": {
+      title: "Travel Jember Bondowoso Murah | Antar Jemput Rumah",
+      desc: "Travel Jember Bondowoso dengan harga bersahabat & penjemputan fleksibel setiap hari."
+    },
+    "Jember-Situbondo": {
+      title: "Travel Jember Situbondo Murah | Antar Jemput Rumah",
+      desc: "Travel Jember Situbondo dengan harga bersahabat & penjemputan fleksibel setiap hari."
+    },
+    "Jember-Jakarta": {
+      title: "Travel Jember Jakarta Murah | Antar Jemput Rumah",
+      desc: "Travel Jember Jakarta dengan harga bersahabat & penjemputan fleksibel setiap hari."
+    },
+    "Jember-Malang": {
+      title: "Travel Jember Malang Murah | Antar Jemput Rumah",
+      desc: "Travel Jember Malang dengan harga bersahabat & penjemputan fleksibel setiap hari."
+    },
+    "Jember-Probolinggo": {
+      title: "Travel Jember Probolinggo Murah | Antar Jemput Rumah",
+      desc: "Travel Jember Probolinggo dengan harga bersahabat & penjemputan fleksibel setiap hari."
+    },
+    "Jember-Pasuruan": {
+      title: "Travel Jember Pasuruan Murah | Antar Jemput Rumah",
+      desc: "Travel Jember Pasuruan dengan harga bersahabat & penjemputan fleksibel setiap hari."
+    },
+    "Jember-Semarang": {
+      title: "Travel Jember Semarang Murah | Antar Jemput Rumah",
+      desc: "Travel Jember Semarang dengan harga bersahabat & penjemputan fleksibel setiap hari."
+    },
+    "Jember-Pati": {
+      title: "Travel Jember Pati Murah | Antar Jemput Rumah",
+      desc: "Travel Jember Pati dengan harga bersahabat & penjemputan fleksibel setiap hari."
+    },
+    "Jember-Banyuwangi": {
+      title: "Travel Jember Banyuwangi Murah | Antar Jemput Rumah",
+      desc: "Travel Jember Banyuwangi dengan harga bersahabat & penjemputan fleksibel setiap hari."
+    },
+    "Jember-Jogja": {
+      title: "Travel Jember Jogja Murah | Antar Jemput Rumah",
+      desc: "Travel Jember Jogja dengan harga bersahabat & penjemputan fleksibel setiap hari."
+    },
+    "Jember-Mojokerto": {
+      title: "Travel Jember Mojokerto Murah | Antar Jemput Rumah",
+      desc: "Travel Jember Mojokerto dengan harga bersahabat & penjemputan fleksibel setiap hari."
+    },
+    "Jember-Kediri": {
+      title: "Travel Jember Kediri Murah | Antar Jemput Rumah",
+      desc: "Travel Jember Mojokerto dengan harga bersahabat & penjemputan fleksibel setiap hari."
+    },
+    "Jember-Tulungagung": {
+      title: "Travel Jember Mojokerto Murah | Antar Jemput Rumah",
+      desc: "Travel Jember Mojokerto dengan harga bersahabat & penjemputan fleksibel setiap hari."
+    },
+    "Jember-Blitar": {
+      title: "Travel Jember Mojokerto Murah | Antar Jemput Rumah",
+      desc: "Travel Jember Mojokerto dengan harga bersahabat & penjemputan fleksibel setiap hari."
+    },
   };
+let path = window.location.pathname; // /jember-surabaya.html
+let filename = path.split("/").pop().replace(".html", "");
+let rute = filename.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join("-");
 
+// update DOM
+if (rute && ruteList[rute]) {
+  document.querySelectorAll(".dyn-origin").forEach(e => e.textContent = ruteList[rute].origin);
+  document.querySelectorAll(".dyn-dest").forEach(e => e.textContent = ruteList[rute].dest);
+  const formatHarga = ruteList[rute].price.toLocaleString("id-ID");
+  document.querySelectorAll(".dyn-price").forEach(e => e.textContent = "Rp " + formatHarga);
+//seo
   if (SEO[r]) {
     document.title = SEO[r].title;
     document.querySelector('meta[name="description"]').setAttribute("content", SEO[r].desc);
@@ -62,12 +124,15 @@
       <img src="image/image2.png" alt="Adventora Logo" class="logo-img">
     </a>
     <nav class="nav-links" id="navLinks">
-      <a href="/index.html" class="nav-item">Beranda</a>
+      <a href="/index.html" class="nav-item">Info Lengkap</a>
       <a href="/rute.html" class="nav-item">Rute Lain</a>
       <a href="#jadwal" class="nav-item">Jadwal & Harga</a>
       <a href="#wisata" class="nav-item">Paket Wisata</a>
       <a href="#armada" class="nav-item">Armada</a>
-      <a href="#kontak" class="nav-item cta-nav-btn">Pesan Sekarang</a>
+      <a href="https://wa.me/6281217241263?text=Halo%20kak,%20saya%20mau%20tanya%20rute""!" 
+   class="nav-item cta-nav-btn" target="_blank">
+   Pesan Sekarang
+</a>
     </nav>
     <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
   </div>
@@ -180,6 +245,26 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 </section>
 
+ <section id="booking-form" class="booking-form-section">
+            <div class="container">
+                <h2>Cepat Pesan Kursi Anda</h2>
+                <form class="quick-booking-form">
+              <div class="rute-form">
+              <label for="asal">Asal:</label>
+              <input type="text" id="asal" name="asal" placeholder="Ketik kota asal">
+              
+              <label for="tujuan">Tujuan:</label>
+              <input type="text" id="tujuan" name="tujuan" placeholder="Ketik kota tujuan">
+              </div>
+                    </select>
+                   <label for="tujuan">Tanggal:</label>
+                    <input type="date" name="tanggal" required>
+                    <input type="number" name="penumpang" placeholder="Jml Penumpang" min="1" required>
+                    <button type="submit" class="btn btn-success cta-form-submit"><i class="fas fa-search"></i> CARI KURSI & PESAN SEKARANG!</button>
+                </form>
+            </div>
+        </section>
+
 <section id="layanan" class="section cta-tourism adventora-bg">
             <div class="container grid-two tourism-content">
                 <div class="tourism-text reveal fade-in-left">
@@ -264,9 +349,10 @@ const ruteList = {
    "Semarang-Surabaya": { origin: "Semarang", dest: "Surabaya", price: 300000 },
    "Malang-Surabaya": { origin: "Malang", dest: "Surabaya", price: 175000 },
    "Surabaya-Jakarta": { origin: "Surabaya", dest: "Jakarta", price: 550000 },
+   "Semarang-Bali": { origin: "Semarang", dest: "Bali", price: 550000 },
 
   // Tambahan opsional nanti
-  "Malang-Jakarta":     { origin: "Malang", dest: "Jakarta", price: 750000 },
+  "Surabaya-Bali":     { origin: "Surabaya", dest: "Bali", price: 300000 },
   "Lumajang-Jember":     { origin: "Lumajang", dest: "Jember", price: 120000 }
 };
 
