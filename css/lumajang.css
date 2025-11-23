@@ -865,3 +865,70 @@ cite {
   justify-content: center;
   overflow: hidden;
 }
+
+/* Section Booking Form */
+#booking-form {
+    background: #0C969C; /* warna latar biru hijau */
+    padding: 50px 20px;
+    color: white;
+    text-align: center;
+}
+
+#booking-form h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Form styling */
+.quick-booking-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.quick-booking-form select,
+.quick-booking-form input {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    min-width: 150px;
+    outline: none;
+}
+
+.quick-booking-form input[type="number"] {
+    width: 120px;
+}
+
+.quick-booking-form button {
+    background: #ffce00;
+    color: #000;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.quick-booking-form button:hover {
+    background: #e6b800;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .quick-booking-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .quick-booking-form input,
+    .quick-booking-form select,
+    .quick-booking-form button {
+        width: 100%;
+    }
+}
