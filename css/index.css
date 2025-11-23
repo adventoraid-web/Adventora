@@ -1177,66 +1177,67 @@ img {
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
-/* Container dropdown mobile */
-.dropdown-mobile {
-    width: 100%;
+
+/* Container dropdown */
+.dropdown-group {
+    position: relative;
+    display: inline-block;
+    width: 100%; /* biar dropdown ikut lebar navbar */
 }
 
 /* Tombol dropdown */
 .dropdown-toggle {
-    width: 100%;
-    background: none;
+    background-color: #0C969C;
+    color: white;
+    padding: 8px 12px;
     border: none;
-    font-size: 16px;
-    text-align: left;
-    padding: 14px 0;
     cursor: pointer;
-    color: #222;
-    font-weight: 600;
+    font-size: 14px;
+    width: 100%;          /* tombol full width */
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
 /* Arrow */
 .dropdown-toggle .arrow {
-    transition: 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 /* Panel dropdown (hidden default) */
 .dropdown-panel {
-    max-height: 0; 
+    max-height: 0;           
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    transition: max-height 0.35s ease;
-    background: rgba(0,0,0,0.07);
-    border-radius: 8px;
-    margin-bottom: 12px;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    position: relative;      /* relatif supaya nempel di bawah tombol */
+    width: 100%;             /* ikut lebar dropdown-group/navbar */
+    background-color: #f9f9f9;
+    border-radius: 0 0 6px 6px; /* rounded cuma bawah */
+    padding: 0;              
+    z-index: 100;
+    box-shadow: none;        /* bisa hapus shadow biar rapi nempel */
 }
 
 /* Link item */
 .dropdown-panel a {
-    padding: 12px 14px;
-    color: #222;
+    display: block;
+    padding: 10px 14px;
     text-decoration: none;
-    background: white;
+    color: #333;
     border-bottom: 1px solid #ddd;
-    border-radius: 6px;
 }
 
-/* Hover */
 .dropdown-panel a:hover {
-    background: #f0f0f0;
+    background-color: #e0f7fa;
 }
 
-/* Panel when active */
-.dropdown-mobile.active .dropdown-panel {
-    max-height: 500px; /* cukup besar */
+/* Saat aktif/tampil */
+.dropdown-panel.show {
+    max-height: 500px;       
+    padding: 8px 0;
 }
 
-/* Rotate arrow saat buka */
-.dropdown-mobile.active .arrow {
+/* Rotate arrow saat aktif */
+.dropdown-toggle.active .arrow {
     transform: rotate(180deg);
 }
