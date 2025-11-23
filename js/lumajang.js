@@ -146,6 +146,38 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
+    
+   const bookingForm = document.querySelector('.quick-booking-form');
+
+if (bookingForm) {
+    bookingForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // mencegah reload
+
+        const asal = this.asal.value;
+        const tujuan = this.tujuan.value;
+        const tanggal = this.tanggal.value;
+        const penumpang = this.penumpang.value;
+
+        // Pesan menarik untuk WhatsApp
+        const message = `Hai Adventora,
+Saya ingin memesan kursi:
+- Asal: ${asal}
+- Tujuan: ${tujuan}
+- Tanggal: ${tanggal}
+- Jumlah Penumpang: ${penumpang}
+
+Mohon bantu proses pemesanannya. Terima kasih! 🙏`;
+
+        // Nomor WhatsApp tujuan (format internasional, tanpa +, misal 6281234567890)
+        const waNumber = "6281217241263";
+
+        // Encode pesan supaya bisa dipakai di URL
+        const waURL = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+
+        // Buka WhatsApp
+        window.open(waURL, "_blank");
+    });
+}
 
 
     // ----------------------------------------------------
