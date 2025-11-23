@@ -17,15 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Toggle Mobile Menu
-  if (navToggle) {
+  if (navToggle && navLinks) {
     navToggle.addEventListener("click", () => {
       navLinks.classList.toggle("open");
       const icon = navToggle.querySelector("i");
-
-      if (navLinks.classList.contains("open")) {
-        icon.classList.replace("fa-bars", "fa-times");
-      } else {
-        icon.classList.replace("fa-times", "fa-bars");
+      if (icon) {
+        if (navLinks.classList.contains("open")) {
+          icon.classList.replace("fa-bars", "fa-times");
+        } else {
+          icon.classList.replace("fa-times", "fa-bars");
+        }
       }
     });
   }
@@ -35,36 +36,42 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("open");
-        const icon = navToggle.querySelector("i");
-        icon.classList.replace("fa-times", "fa-bars");
+        if (navToggle) {
+          const icon = navToggle.querySelector("i");
+          if (icon) icon.classList.replace("fa-times", "fa-bars");
+        }
       });
     });
   }
-  
-document.querySelectorAll('.dropdown-toggle').forEach(button => {
+
+  /* ==========================================================================
+     Dropdowns (safe checks)
+  ========================================================================== */
+  document.querySelectorAll('.dropdown-toggle').forEach(button => {
     button.addEventListener('click', (e) => {
-        e.stopPropagation(); // agar klik tidak menutup dropdown lain
-        const panel = button.nextElementSibling;
+      e.stopPropagation(); // agar klik tidak menutup dropdown lain
+      const panel = button.nextElementSibling;
+      if (!panel) return; // kalau panel tidak ditemukan, hentikan
 
-        // tutup panel lain
-        document.querySelectorAll('.dropdown-panel').forEach(p => {
-            if(p !== panel) p.classList.remove('show');
-        });
-        document.querySelectorAll('.dropdown-toggle').forEach(b => {
-            if(b !== button) b.classList.remove('active');
-        });
+      // tutup panel lain
+      document.querySelectorAll('.dropdown-panel').forEach(p => {
+        if (p !== panel) p.classList.remove('show');
+      });
+      document.querySelectorAll('.dropdown-toggle').forEach(b => {
+        if (b !== button) b.classList.remove('active');
+      });
 
-        // toggle panel ini
-        panel.classList.toggle('show');
-        button.classList.toggle('active');
+      // toggle panel ini
+      panel.classList.toggle('show');
+      button.classList.toggle('active');
     });
-});
+  });
 
-// Tutup semua dropdown kalau klik di luar
-window.addEventListener('click', () => {
+  // Tutup semua dropdown kalau klik di luar
+  window.addEventListener('click', () => {
     document.querySelectorAll('.dropdown-panel').forEach(panel => panel.classList.remove('show'));
     document.querySelectorAll('.dropdown-toggle').forEach(b => b.classList.remove('active'));
-});
+  });
 
   /* ==========================================================================
      2. Reveal on Scroll (IntersectionObserver)
@@ -82,7 +89,6 @@ window.addEventListener('click', () => {
 
     revealItems.forEach(el => revealObserver.observe(el));
   }
-
 
   /* ==========================================================================
      3. Number Counter
@@ -117,9 +123,9 @@ window.addEventListener('click', () => {
       });
     }, { threshold: 0.5 });
 
-    counterObserver.observe(counterElement.closest('.trust-badge'));
+    const trustBadge = counterElement.closest('.trust-badge');
+    if (trustBadge) counterObserver.observe(trustBadge);
   }
-
 
   /* ==========================================================================
      4. Testimonial Slider (Auto Slide)
@@ -132,7 +138,7 @@ window.addEventListener('click', () => {
 
     const showSlide = () => {
       items.forEach(item => item.classList.remove("active"));
-      items[idx].classList.add("active");
+      if (items[idx]) items[idx].classList.add("active");
     };
 
     setInterval(() => {
@@ -142,7 +148,6 @@ window.addEventListener('click', () => {
 
     showSlide();
   }
-
 
   /* ==========================================================================
      5. Typing Effect
@@ -165,19 +170,18 @@ window.addEventListener('click', () => {
     type();
   }
 
-
   /* ==========================================================================
      6. Fade-in Elements
   ========================================================================== */
   const fadeElements = document.querySelectorAll('.fade-in-right, .fade-in-left, .reveal');
-  const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add("show");
+  if (fadeElements.length > 0) {
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+      });
     });
-  });
-
-  fadeElements.forEach(el => fadeObserver.observe(el));
-
+    fadeElements.forEach(el => fadeObserver.observe(el));
+  }
 
   /* ==========================================================================
      7. Gallery Slider
