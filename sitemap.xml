@@ -1,9 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Homepage -->
   <url>
-    <loc>https://adventora.netlify.app/</loc>
-    <lastmod>2025-11-03</lastmod>
+    <loc>https://www.adventora.web.id/</loc>
+    <lastmod>2025-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Halaman utama layanan -->
+  <url>
+    <loc>https://www.adventora.web.id/booking.html</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.adventora.web.id/paket.html</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Rute travel -->
+  <url>
+    <loc>https://www.adventora.web.id/jember-surabaya.html</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.adventora.web.id/bondowoso-surabaya.html</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.adventora.web.id/lumajang-surabaya.html</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.adventora.web.id/rute.html</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.adventora.web.id/rute-kota.html</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Tambahkan halaman lain yang penting jika ada -->
+  
 </urlset>
