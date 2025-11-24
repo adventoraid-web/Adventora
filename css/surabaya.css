@@ -961,7 +961,7 @@ img {
 }
 
 /* Track (wrapper semua slide) */
-#gallerySlider {
+.gallerySlider {
   display: flex;
   transition: transform 0.6s ease-in-out;
   gap: 0;
