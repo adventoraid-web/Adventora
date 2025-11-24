@@ -11,11 +11,11 @@
   <meta name="robots" content="index, follow">
 
   <!-- Canonical -->
-  <link rel="canonical" href="https://www.adventora.web.id/bondowoso-surabaya.html">
+  <link rel="canonical" href="https://www.adventora.web.id/bondowoso-surabaya">
 
   <!-- Icons -->
   <link rel="icon" type="image/png" href="/image/logo.png">
-  <link rel="apple-touch-icon" href="/image/logo.png">
+  <link rel="apple-touch-icon" href="/image/title.webp">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Travel Bondowoso ⇆ Surabaya • Antar Jemput Rumah Cepat & Nyaman">
@@ -40,7 +40,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="css/rutekota.css">
+  <link rel="stylesheet" href="css/bondowoso.css">
 
   <!-- Dynamic prices & SEO auto-detect filename (non-critical) -->
   <script>
@@ -57,7 +57,7 @@
     "@type": "TravelAgency",
     "name": "Adventora Travel",
     "url": "https://www.adventora.web.id/bondowoso-surabaya",
-    "logo": "https://www.adventora.web.id/image/title.webp",
+    "logo": "https://www.adventora.web.id/image/logo.png",
     "image": "https://www.adventora.web.id/image/title.webp",
     "description": "Travel Bondowoso ⇆ Surabaya door-to-door — jemput alamat, antar sampai tujuan. Armada bersih & driver profesional. Harga mulai Rp 225.000.",
     "telephone": "+6281217241263",
@@ -80,7 +80,7 @@
 
 <header class="navbar" id="navbar">
   <div class="container nav-inner">
-    <a class="brand" href="/index.html">
+    <a class="brand" href="#">
       <img src="image/image2.png" alt="Logo Adventora Travel" class="logo-img">
     </a>
     <nav class="nav-links" id="navLinks">
@@ -106,7 +106,7 @@
 
     <p class="cta-text">Pesan Sekarang — Dapatkan Diskon Rp 20.000/Kursi, Kuota Terbatas!</p>
 
-    <h3><i class="fas fa-exchange-alt"></i> Rute: <span class="dyn-origin">Lumajang</span> ⇆ <span class="dyn-dest">Surabaya</span></h3>
+    <h3><i class="fas fa-exchange-alt"></i> Rute: <span class="dyn-origin">Bondowoso</span> ⇆ <span class="dyn-dest">Surabaya</span></h3>
 
     <p class="hero-tagline animate-stagger-2">
       Mau ke Surabaya dari Bondowoso atau balik ke Bondowoso dari Surabaya? Adventora siap jemput langsung di alamat Anda dan antar sampai tujuan. Armada nyaman & bersih, driver ramah, harga transparan — perjalanan jadi santai dan aman, cocok untuk keluarga, kerja, atau pulang kampung.
@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </section>
 
 <section id="kontak" class="contact-cta-section adventora-section-bg" style="padding:60px 0;text-align:center;">
-  <a id="wa-cta" href="https://wa.me/6281217241263?text=Halo%20kak,%20saya%20mau%20pesan%20travel%Bondowoso%20-%20Surabaya" target="_blank" class="btn primary cta-pulse" style="font-size:26px;padding:22px 50px;border-radius:12px;">
+  <a id="wa-cta" href="https://wa.me/6281217241263?text=Halo%20kak,%20saya%20mau%20pesan%20travel%20Bondowoso%20-%20Surabaya" target="_blank" class="btn primary cta-pulse" style="font-size:26px;padding:22px 50px;border-radius:12px;">
     PESAN TRAVEL BONDOWOSO ⇆ SURABAYA SEKARANG!
   </a>
 </section>
@@ -312,7 +312,14 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   </div>
 </footer>
-
-<script src="js/rutekota.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('.hero *').forEach(el => {
+    el.style.opacity = 1;
+    el.style.transform = 'translateY(0)';
+  });
+});
+</script>
+<script src="js/bondowoso.js"></script>
 </body>
 </html>
