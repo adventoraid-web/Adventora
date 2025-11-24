@@ -1,0 +1,1007 @@
+/* lumajang.css */
+
+:root {
+    /* Variabel Warna Utama */
+    --color-primary: #3A506B; 
+    --color-secondary: #0C969C; 
+    --color-highlight: #0A7075; 
+    --color-dark: #121212; 
+    --color-light: #FFFFFF;
+    --color-text-soft: #666;
+
+    /* Variabel Latar Belakang */
+    --bg-adventora: #5BC0BE;
+    --bg-section-light: #F4F4F9;
+    --bg-section-dark: #0B132B;
+
+    /* Variabel Font */
+    --font-heading: 'Montserrat', sans-serif; 
+    --font-body: 'Poppins', sans-serif; 
+
+    /* Transisi Umum */
+    --transition-duration: 0.4s;
+    --transition-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* -------------------- GLOBAL & TYPOGRAPHY -------------------- */
+
+* {
+    /* Mengatur model kotak agar padding dan border dihitung dalam lebar/tinggi elemen */
+    box-sizing: border-box;
+    /* Menghapus margin dan padding default browser */
+    margin: 0;
+    padding: 0;
+}
+
+/* HTML Base */
+html {
+    /* Mengaktifkan scroll halus/smooth scrolling saat navigasi (mis. anchor link) */
+    scroll-behavior: smooth;
+    /* Menetapkan ukuran font dasar (16px) */
+    font-size: 16px;
+    /* Mencegah overflow horizontal pada seluruh dokumen */
+    overflow-x: hidden;
+}
+
+/* Body Base Styles */
+body {
+    /* Menerapkan font body global */
+    font-family: var(--font-body);
+    /* Mengatur tinggi baris/line height standar */
+    line-height: 1.6;
+    /* Menerapkan warna teks gelap default */
+    color: var(--color-dark);
+    /* Mengatur latar belakang halaman putih default */
+    background-color: #fff;
+    /* Mencegah overflow horizontal pada body */
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. Utilitas dan Layout Dasar
+   ========================================================================== */
+
+/* Container (Pembatas Konten) */
+.container {
+    /* Menetapkan lebar maksimum kontainer */
+    max-width: 1200px;
+    /* Memposisikan kontainer di tengah halaman */
+    margin: 0 auto;
+    /* Menambahkan padding horizontal (spasi-md) untuk menghindari konten menempel di tepi layar */
+    padding: 0 var(--spacing-md);
+}
+
+/* Section (Pembungkus Bagian Halaman) */
+.section {
+    /* Menambahkan padding vertikal ekstra besar (spasi-xl) untuk memisahkan antar bagian */
+    padding: var(--spacing-xl) 0;
+    /* Memastikan konten di dalam section tidak meluber (penting untuk animasi) */
+    overflow: hidden; 
+}
+
+/* KONTROL GAMBAR GLOBAL */
+img {
+    /* Memastikan semua gambar tidak melebihi lebar kontainernya */
+    max-width: 100%;
+    /* Mengatur tinggi otomatis agar rasio aspek tetap terjaga */
+    height: auto;
+    /* Mengubah gambar menjadi elemen blok untuk menghilangkan margin bawah default */
+    display: block; 
+}
+
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.7;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto; /* PENTING: Memastikan container selalu di tengah */
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-secondary);
+    transition: all var(--transition-duration);
+}
+a:hover {
+    color: var(--color-highlight);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-dark);
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+.adventora-bg {
+    background-color: var(--bg-adventora);
+}
+.adventora-section-bg {
+    background-color: var(--bg-section-light);
+}
+.section {
+    padding: 90px 0;
+    text-align: center; /* Rata tengah default untuk judul dan tombol */
+}
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--color-primary);
+}
+
+/* Utilitas */
+.mt-20 { margin-top: 20px; }
+.mt-40 { margin-top: 40px; }
+
+
+/* -------------------- TOMBOL & CTA -------------------- */
+.btn {
+    display: inline-block;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-duration) var(--transition-ease);
+}
+.btn.small {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+}
+.btn.primary {
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+    box-shadow: 0 5px 15px rgba(12, 150, 156, 0.3);
+}
+.btn.primary:hover {
+    background-color: var(--color-highlight);
+    transform: translateY(-3px);
+}
+.btn.outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+.btn.outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+}
+.cta-pulse {
+    animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(12, 150, 156, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(12, 150, 156, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(12, 150, 156, 0); }
+}
+
+/* -------------------- HEADER & NAVIGASI -------------------- */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--color-highlight);
+    transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
+}
+.navbar.scrolled {
+    background-color: var(--color-secondary);
+    box-shadow: 0 3px 15px var(--color-secondary);
+}
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+.brand {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--color-light);
+}
+.nav-links a {
+    color: var(--color-light);
+    margin: 0 10px;
+    font-weight: 600;
+    padding: 5px 0;
+}
+.nav-links .cta-nav-btn {
+    background-color: var(--color-secondary);
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-left: 15px;
+    color: var(--color-light);
+}
+.nav-links .cta-nav-btn:hover {
+    background-color: var(--color-highlight);
+}
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-light);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+
+.logo-img {
+    /* Menetapkan tinggi logo */
+    height: 50px; 
+    /* Transisi untuk filter (perubahan warna) */
+    transition: filter 0.3s ease;
+    /* Invert warna logo (mis. dari hitam menjadi putih) untuk latar belakang transparan */
+    filter: invert(100%); 
+}
+
+/* -------------------- HERO SECTION -------------------- */
+.hero {
+  padding: 80px 20px;
+  background: linear-gradient(rgba(12,150,156,0.85), rgba(10,112,117,0.85)), url('/image/bg-travel.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.hero-content h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.cta-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.cta-banner .btn {
+  padding: 12px 25px;
+  font-size: 1rem;
+}
+
+.trust-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.trust-item {
+  background: rgba(255,255,255,0.1);
+  padding: 10px 15px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+  .hero-content p {
+    font-size: 1.3rem;
+  }
+  .cta-banner {
+    flex-direction: row;
+  }
+}
+
+.animate-stagger-1, .animate-stagger-2, .animate-stagger-3, .animate-stagger-4 {
+  transition: all 0.8s ease;
+}
+
+.animate-stagger-1.active,
+.animate-stagger-2.active,
+.animate-stagger-3.active,
+.animate-stagger-4.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -------------------- KEUNGGULAN SECTION -------------------- */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px; 
+    margin: 0 auto; /* RATA TENGAH */
+}
+.feature-card {
+    background-color: var(--color-light);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.5s var(--transition-ease), box-shadow 0.5s;
+    text-align: center; /* Rata Tengah Isi Kartu */
+}
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(12, 150, 156, 0.2);
+}
+.feature-icon {
+    font-size: 3rem;
+    color: var(--color-secondary);
+    margin-bottom: 15px;
+}
+.feature-card h3 {
+    color: var(--color-primary);
+}
+
+/* -------------------- LAYANAN SPESIAL -------------------- */
+.service-list-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto; /* RATA TENGAH */
+}
+.service-block {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    padding: 35px;
+    border-radius: 10px;
+    transition: transform 0.4s;
+}
+.service-block:hover {
+    transform: scale(1.02);
+}
+.service-icon {
+    font-size: 2.5rem;
+    color: var(--bg-adventora);
+    margin-bottom: 15px;
+}
+.service-block h3 {
+    color: var(--bg-adventora);
+}
+.service-details {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+.service-details li {
+    margin-bottom: 8px;
+    font-weight: 300;
+}
+.service-details i {
+    color: var(--color-secondary);
+    margin-right: 8px;
+}
+
+.service-highlight {
+    border: 3px solid var(--color-highlight);
+}
+
+/* -------------------- SECTION JADWAL & HARGA -------------------- */
+.schedule-table-section {
+    padding: 70px 0;
+}
+.schedule-intro {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 50px;
+}
+.schedule-grid-container {
+    display: flex;
+    justify-content: center; /* horizontal */
+    align-items: center;     /* vertical */
+    min-height: 100vh;       /* tinggi penuh viewport */
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* grid 2 kolom */
+    gap: 30px;
+    max-width: 800px;
+}
+
+
+.schedule-column h3 {
+    color: var(--color-secondary);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.schedule-column i {
+    margin-right: 10px;
+}
+.schedule-card {
+    background-color: var(--color-light);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+.schedule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+    font-size: 1.1rem;
+}
+.schedule-item:last-of-type {
+    border-bottom: none;
+    margin-bottom: 15px;
+}
+.schedule-item span {
+    font-weight: 400;
+    color: var(--color-text-soft); 
+}
+.schedule-item strong {
+    font-weight: 700;
+    color: var(--color-primary);
+}
+.price-info {
+    margin-top: 20px;
+    font-weight: 600;
+    color: var(--color-highlight);
+    border-top: 2px solid var(--bg-adventora);
+    padding-top: 10px;
+}
+
+
+/* -------------------- CTA TOURISM -------------------- */
+.cta-tourism {
+    padding: 60px 0;
+    color: var(--color-light);
+}
+.cta-tourism h2, .cta-tourism p {
+    color: var(--color-light);
+}
+.grid-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1000px; 
+    margin: 0 auto; /* RATA TENGAH */
+    text-align: left;
+}
+.tourism-content {
+    align-items: center;
+}
+.tourism-text h2 {
+    font-size: 2rem;
+    color: var(--color-light);
+}
+.tourism-image img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.cta-tourism .btn.primary {
+    background-color: var(--color-light);
+    color: var(--color-primary);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.cta-tourism .btn.primary:hover {
+    background-color: #ddd;
+}
+
+
+/* -------------------- SECTION PAKET WISATA -------------------- */
+.tour-packages-section {
+    padding: 90px 0;
+}
+.package-intro {
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+}
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto; /* RATA TENGAH */
+}
+.package-card {
+    background-color: var(--color-light);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s;
+}
+.package-card:hover {
+    transform: translateY(-5px);
+}
+.package-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.package-card h3 {
+    padding: 15px 20px 5px;
+    color: var(--color-primary);
+}
+.package-card p {
+    padding: 0 20px 15px;
+    font-size: 0.95rem;
+    color: #555;
+}
+.package-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+}
+.package-details i {
+    margin-right: 5px;
+}
+.package-card .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+    border-top: 1px solid var(--color-primary);
+}
+
+
+/* -------------------- ARMADA SLIDER (FIXED CENTERING & MOBILE) -------------------- */
+.gallery-slider-section {
+    background-color: var(--color-light);
+}
+.gallery-slider {
+    overflow: hidden;
+    margin: 40px auto 0; /* RATA TENGAH */
+    max-width: 1100px;
+    border-radius: 10px;
+}
+.slider-track {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+}
+.slide {
+    flex-shrink: 0;
+    width: calc(100% / 3); 
+}
+.slide img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* -------------------- TESTIMONIALS -------------------- */
+.testimonials {
+    color: var(--color-dark);
+}
+.testi-slider {
+    max-width: 900px;
+    margin: 40px auto 30px; /* RATA TENGAH */
+    position: relative;
+    overflow: hidden;
+    height: 180px;
+}
+.testi-item {
+    padding: 30px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.6s var(--transition-ease);
+}
+.testi-item.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+.testi-item.leaving {
+    transform: translateX(-100%);
+}
+.testi-stars {
+    color: #ffc107;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+blockquote {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--color-dark);
+}
+cite {
+    display: block;
+    text-align: right;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+.testi-controls {
+    margin-top: 20px;
+}
+.testi-controls button {
+    margin: 0 10px;
+}
+
+/* -------------------- CONTACT INFO -------------------- */
+.contact-info-map {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 40px;
+    text-align: left;
+    max-width: 1000px;
+    margin: 0 auto; /* RATA TENGAH */
+}
+.contact-info h2 {
+    color: var(--color-primary);
+    font-size: 2rem;
+}
+.nap-detail {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+.nap-detail i {
+    color: var(--color-secondary);
+    margin-right: 10px;
+    min-width: 20px;
+}
+.map-wrap {
+    height: 350px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.map-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* -------------------- FOOTER -------------------- */
+.main-footer {
+    background-color: var(--color-dark);
+    padding: 20px 0;
+    color: var(--color-light);
+    font-size: 0.9rem;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.footer-content a {
+    color: var(--bg-adventora);
+    margin-left: 10px;
+}
+.separator {
+    margin: 0 5px;
+}
+
+
+/* -------------------- ANIMASI (REVEAL ON SCROLL) -------------------- */
+.reveal {
+    opacity: 0;
+    transition: opacity 0.8s var(--transition-ease), transform 0.8s var(--transition-ease); 
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0) translateX(0) !important; 
+}
+.fade-in-down { transform: translateY(-50px); }
+.fade-in-up { transform: translateY(50px); }
+.fade-in-left { transform: translateX(-50px); }
+.fade-in-right { transform: translateX(50px); }
+
+.animate-group > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: none; 
+}
+
+/* -------------------- MEDIA QUERIES (RESPONSIVE) -------------------- */
+@media (max-width: 992px) {
+    /* Tablet/Layar Sedang */
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .cta-banner {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .service-list-grid, 
+    .tourism-content, 
+    .schedule-grid, 
+    .contact-info-map {
+        grid-template-columns: 1fr;
+        max-width: 100%; /* Gunakan lebar penuh container di mobile */
+    }
+    .tourism-image {
+        order: -1;
+    }
+    
+    /* Armada: 2 kolom di tablet (Jika JavaScript diaktifkan) */
+    .gallery-slider .slide {
+        width: calc(100% / 2); 
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile / Layar Kecil */
+    .section {
+        padding: 60px 0;
+    }
+    .hero {
+        padding: 140px 0 60px; 
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero-tagline {
+        font-size: 1.1rem;
+    }
+    .cta-banner .cta-text {
+        font-size: 1.1rem;
+    }
+
+    /* Navigasi Mobile */
+    .navbar .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 67px; 
+        left: 0;
+        width: 100%;
+        background-color: var(--color-primary);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-links a {
+        text-align: center;
+        padding: 15px 20px;
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .nav-links .cta-nav-btn {
+        margin: 10px auto;
+    }
+    .nav-toggle {
+        display: block;
+    }
+
+    /* ARMADA FIX: Scroll Horizontal di mobile */
+    .gallery-slider {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: none;
+        padding-left: 20px; 
+        padding-right: 20px;
+        overflow-x: scroll; 
+        overflow-y: hidden;
+        white-space: nowrap;
+        scroll-snap-type: x mandatory;
+    }
+    .slider-track {
+        display: flex;
+        width: fit-content; 
+        transition: none !important; 
+        transform: none !important;
+    }
+    .gallery-slider .slide {
+        width: 80vw; 
+        scroll-snap-align: center;
+        margin-right: 20px;
+    }
+    .gallery-slider-section .gallery-slider {
+        padding-bottom: 10px;
+    }
+
+    /* Tata Letak Footer */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+.testi-slider {
+  display: flex;
+  flex-wrap: nowrap; /* jangan wrap di desktop, tapi di mobile bisa wrap */
+  overflow: hidden;
+  justify-content: center;
+}
+
+.testi-item {
+  min-width: 300px; /* lebar item minimal */
+  max-width: 90%; /* agar mobile tidak terlalu melebar */
+  margin: 0 10px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .testi-slider {
+    flex-wrap: wrap; /* biar item bisa turun baris di layar kecil */
+  }
+  .testi-item {
+    min-width: 90%; /* hampir full width di mobile */
+    margin: 10px auto; /* center otomatis */
+  }
+}
+
+.testi-slider-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Section Booking Form */
+#booking-form {
+    background: #0C969C; /* warna latar biru hijau */
+    padding: 50px 20px;
+    color: white;
+    text-align: center;
+}
+
+#booking-form h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Form styling */
+.quick-booking-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.quick-booking-form select,
+.quick-booking-form input {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    min-width: 150px;
+    outline: none;
+}
+
+.quick-booking-form input[type="number"] {
+    width: 120px;
+}
+
+.quick-booking-form button {
+    background: #ffce00;
+    color: #000;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.quick-booking-form button:hover {
+    background: #e6b800;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .quick-booking-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .quick-booking-form input,
+    .quick-booking-form select,
+    .quick-booking-form button {
+        width: 100%;
+    }
+}
+
+/* ====== SEO Jember Surabaya Section ====== */
+#seo-jember-surabaya {
+  padding: 60px 20px;
+  background-color: #f9f9f9; /* atau sesuaikan dengan tema adventora-section-bg */
+}
+
+#seo-jember-surabaya .container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+#seo-jember-surabaya .section-title {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #0C969C; /* warna tema */
+}
+
+#seo-jember-surabaya .seo-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+
+#seo-jember-surabaya .seo-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 25px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#seo-jember-surabaya .seo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+#seo-jember-surabaya .seo-card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#seo-jember-surabaya .seo-card strong {
+  color: #0C969C;
+}
+
+#seo-jember-surabaya .seo-card ul {
+  margin: 10px 0 0 20px;
+  padding: 0;
+  list-style: disc;
+  color: #333;
+}
+
+#seo-jember-surabaya .seo-card ul li {
+  margin-bottom: 6px;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  #seo-jember-surabaya .seo-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  #seo-jember-surabaya .seo-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
