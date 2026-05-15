@@ -1,0 +1,1389 @@
+/* ==========================================================================
+   1. Konfigurasi Global & Reset
+   ========================================================================== */
+
+/* :root (Variabel CSS Global) */
+:root {
+    /* Variabel Warna Utama */
+    --color-primary: #3A506B; /* Warna biru utama, sering digunakan untuk tautan atau elemen interaktif. */
+    --color-secondary: #0C969C; /* Warna hijau sekunder. */
+    --color-highlight: #0A7075; /* Warna kuning untuk menyorot elemen penting (mis. tombol CTA). */
+    --color-dark: #03171B; /* Warna teks atau elemen gelap. */
+    --color-light: #; /* Warna teks atau elemen terang/latar belakang. */
+
+    /* Variabel Latar Belakang */
+    --bg-adventora: #5BC0BE; /* Warna latar belakang spesifik untuk elemen 'adventora'. */
+    --bg-section-light: #6FFFE9; /* Warna latar belakang untuk bagian/section terang. */
+    --bg-section-dark: #0B132B; /* Warna latar belakang untuk bagian/section gelap. */
+
+    /* Variabel Font */
+    --font-heading: 'Montserrat', sans-serif; /* Font untuk judul/heading. */
+    --font-body: 'Poppins', sans-serif; /* Font untuk teks tubuh/body. */
+
+    /* Variabel Spasi/Jarak (Spacing) */
+    --spacing-sm: 1rem; /* Spasi kecil (16px). */
+    --spacing-md: 2rem; /* Spasi sedang (32px). */
+    --spacing-lg: 4rem; /* Spasi besar (64px). */
+    --spacing-xl: 6rem; /* Spasi ekstra besar (96px), sering digunakan untuk padding section. */
+}
+
+/* Universal Reset (*) */
+* {
+    /* Mengatur model kotak agar padding dan border dihitung dalam lebar/tinggi elemen */
+    box-sizing: border-box;
+    /* Menghapus margin dan padding default browser */
+    margin: 0;
+    padding: 0;
+}
+
+/* HTML Base */
+html {
+    /* Mengaktifkan scroll halus/smooth scrolling saat navigasi (mis. anchor link) */
+    scroll-behavior: smooth;
+    /* Menetapkan ukuran font dasar (16px) */
+    font-size: 16px;
+    /* Mencegah overflow horizontal pada seluruh dokumen */
+    overflow-x: hidden;
+}
+
+/* Body Base Styles */
+body {
+    /* Menerapkan font body global */
+    font-family: var(--font-body);
+    /* Mengatur tinggi baris/line height standar */
+    line-height: 1.6;
+    /* Menerapkan warna teks gelap default */
+    color: var(--color-dark);
+    /* Mengatur latar belakang halaman putih default */
+    background-color: #fff;
+    /* Mencegah overflow horizontal pada body */
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. Utilitas dan Layout Dasar
+   ========================================================================== */
+
+/* Container (Pembatas Konten) */
+.container {
+    /* Menetapkan lebar maksimum kontainer */
+    max-width: 1200px;
+    /* Memposisikan kontainer di tengah halaman */
+    margin: 0 auto;
+    /* Menambahkan padding horizontal (spasi-md) untuk menghindari konten menempel di tepi layar */
+    padding: 0 var(--spacing-md);
+}
+
+/* Section (Pembungkus Bagian Halaman) */
+.section {
+    /* Menambahkan padding vertikal ekstra besar (spasi-xl) untuk memisahkan antar bagian */
+    padding: var(--spacing-xl) 0;
+    /* Memastikan konten di dalam section tidak meluber (penting untuk animasi) */
+    overflow: hidden; 
+}
+
+/* KONTROL GAMBAR GLOBAL */
+img {
+    /* Memastikan semua gambar tidak melebihi lebar kontainernya */
+    max-width: 100%;
+    /* Mengatur tinggi otomatis agar rasio aspek tetap terjaga */
+    height: auto;
+    /* Mengubah gambar menjadi elemen blok untuk menghilangkan margin bawah default */
+    display: block; 
+}
+
+/* Latar Belakang Bertema */
+.adventora-bg {
+    /* Menerapkan warna latar belakang utama adventora */
+    background-color: var(--bg-adventora);
+    /* Mengubah warna teks menjadi terang agar kontras */
+    color: var(--color-light);
+}
+
+/* Latar Belakang Section Terang */
+.adventora-section-bg {
+    /* Menerapkan warna latar belakang section terang */
+    background-color: var(--bg-section-light);
+}
+
+/* Perataan Teks Judul dan Badge */
+.section-title, .trust-badge .trust-text {
+    /* Meratakan teks judul bagian dan teks trust badge ke tengah */
+    text-align: center;
+}
+
+/* Gaya Judul Utama Bagian */
+.section-title {
+    /* Menerapkan font heading */
+    font-family: var(--font-heading);
+    /* Ukuran font besar untuk judul utama */
+    font-size: 2.5rem;
+    /* Margin bawah besar */
+    margin-bottom: var(--spacing-lg);
+    /* Ketebalan font ekstra */
+    font-weight: 800;
+}
+
+/* Gaya Judul Kiri (Sekunder) */
+.section-title-left {
+    /* Menerapkan font heading */
+    font-family: var(--font-heading);
+    /* Ukuran font lebih kecil dari judul utama */
+    font-size: 2rem;
+    /* Margin bawah sedang */
+    margin-bottom: var(--spacing-md);
+    /* Ketebalan font tebal */
+    font-weight: 700;
+}
+
+/* Tombol (Button) */
+.btn {
+    /* Menggunakan flexbox untuk penataan konten tombol (mis. ikon dan teks) */
+    display: inline-flex;
+    /* Meratakan item secara vertikal */
+    align-items: center;
+    /* Meratakan item secara horizontal */
+    justify-content: center;
+    /* Padding internal tombol */
+    padding: 0.75rem 1.5rem;
+    /* Sudut membulat */
+    border-radius: 8px;
+    /* Menghilangkan dekorasi teks (underline) */
+    text-decoration: none;
+    /* Ketebalan font */
+    font-weight: 600;
+    /* Transisi halus untuk semua perubahan properti */
+    transition: all 0.3s ease;
+    /* Mengubah kursor saat diarahkan */
+    cursor: pointer;
+    /* Border transparan default */
+    border: 2px solid transparent;
+    /* Font untuk teks tombol */
+    font-family: var(--font-heading);
+}
+
+/* Tombol Primary */
+.btn.primary { 
+    /* Latar belakang warna highlight (kuning) */
+    background-color: var(--color-highlight); 
+    /* Warna teks gelap */
+    color: var(--color-dark); 
+}
+.btn.primary:hover { 
+    /* Perubahan warna saat hover */
+    background-color: #03fffe; 
+    /* Efek angkat sedikit saat hover */
+    transform: translateY(-6px); 
+}
+
+/* Tombol Ghost (Transparan dengan Border Terang) */
+.btn.ghost { 
+    /* Latar belakang transparan */
+    background-color: transparent; 
+    /* Border warna terang */
+    border-color: var(--color-light); 
+    /* Warna teks terang */
+    color: var(--color-light); 
+}
+.btn.ghost:hover { 
+    /* Latar belakang sedikit transparan saat hover */
+    background-color: rgba(255, 255, 255, 0.1); 
+    /* Efek angkat sedikit saat hover */
+    transform: translateY(-2px); 
+}
+
+/* Tombol Outline (Border Warna Primary) */
+.btn.outline { 
+    /* Latar belakang transparan */
+    background-color: transparent; 
+    /* Border warna primary */
+    border-color: var(--color-primary); 
+    /* Warna teks primary */
+    color: var(--color-primary); 
+}
+.btn.outline:hover { 
+    /* Latar belakang menjadi warna primary saat hover */
+    background-color: var(--color-primary); 
+    /* Warna teks menjadi terang saat hover */
+    color: var(--color-light); 
+}
+
+/* Keyframe Animasi Pulse */
+@keyframes pulse {
+    /* Awal: bayangan kotak penuh */
+    0% { box-shadow: 0 0 0 0 rgb(7,243,255); }
+    /* Tengah: bayangan kotak memudar dan meluas */
+    70% { box-shadow: 0 0 0 10px rgba(255, 193, 7, 0); }
+    /* Akhir: kembali ke awal */
+    100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
+}
+
+/* Penerapan Animasi Pulse (untuk CTA) */
+.cta-pulse { 
+    /* Menerapkan animasi pulse berulang tak terbatas */
+    animation: pulse 1.5s infinite; 
+}
+
+/* ==========================================================================
+   3. Navbar (Navigasi Atas)
+   ========================================================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 0;
+    z-index: 999;
+    backdrop-filter: blur(12px); /* efek blur */
+    background: #24eed473); /* sedikit transparan */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+/* Gaya Navbar saat di-scroll */
+.navbar.scrolled {
+    /* Latar belakang menjadi putih saat di-scroll */
+    background-color: #6FFFE9;
+    /* Menambahkan bayangan kotak (shadow) saat di-scroll */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Warna Tautan Navigasi saat Navbar di-scroll */
+.navbar.scrolled .nav-links a {
+    /* Warna tautan menjadi gelap saat di-scroll */
+    color: var(--color-light); 
+}
+
+/* Inner Konten Navigasi */
+.nav-inner {
+    /* Menggunakan flexbox untuk menata logo dan tautan */
+    display: flex;
+    /* Memisahkan logo dan tautan sejauh mungkin */
+    justify-content: space-between;
+    /* Meratakan item secara vertikal */
+    align-items: center;
+}
+
+/* Gambar Logo */
+.logo-img {
+    /* Menetapkan tinggi logo */
+    height: 50px; 
+    /* Transisi untuk filter (perubahan warna) */
+    transition: filter 0.3s ease;
+    /* Invert warna logo (mis. dari hitam menjadi putih) untuk latar belakang transparan */
+    filter: invert(100%); 
+}
+
+/* Gambar Logo saat Navbar di-scroll */
+.navbar.scrolled .logo-img {
+    /* Menghapus filter invert (mengembalikan warna asli, mis. menjadi hitam) */
+    filter: none; 
+}
+
+/* Tautan Navigasi */
+.nav-links a {
+    /* Warna tautan default (terang) */
+    color: var(--color-light); 
+    /* Margin kiri antar tautan */
+    margin-left: var(--spacing-md);
+    /* Menghilangkan dekorasi teks */
+    text-decoration: none;
+    /* Ketebalan font */
+    font-weight: 600;
+    /* Transisi halus untuk perubahan warna */
+    transition: color 0.3s ease;
+}
+
+/* Efek Hover Tautan Navigasi */
+.nav-links a:hover {
+    /* Warna berubah menjadi highlight saat hover */
+    color: var(--color-highlight);
+}
+
+/* Tombol Toggle Navigasi (Hamburger Menu) */
+.nav-toggle {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+}
+
+/* Saat ditekan jadi X / close */
+.nav-toggle.active {
+    transform: rotate(90deg); /* bisa diganti jadi scale/rotate */
+}
+
+/* Warna Tombol Toggle saat Navbar di-scroll */
+.navbar.scrolled .nav-toggle {
+    /* Warna ikon menjadi gelap saat di-scroll */
+    color: var(--color-light);
+}
+
+.nav-toggle {
+  position: relative;
+  z-index: 10001;
+}
+/* ==========================================================================
+   4. Hero Section (Bagian Utama)
+   ========================================================================== */
+
+.hero {
+    /* Tinggi minimal setinggi viewport */
+    min-height: 100vh;
+    /* Menggunakan flexbox untuk memposisikan konten di tengah */
+    display: flex;
+    /* Meratakan item secara vertikal */
+    align-items: center;
+    /* Meratakan item secara horizontal */
+    justify-content: center;
+    /* Perataan teks di tengah */
+    text-align: center;
+    /* Posisi relatif untuk pseudoelemen overlay */
+    position: relative;
+    /* Pengaturan gambar latar belakang (jika ada) */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Overlay Gelap pada Hero Section */
+.hero::before {
+    /* Membuat overlay hitam semi-transparan di atas gambar latar */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Warna overlay (hitam dengan opasitas 0.6) */
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1 ;
+}
+
+/* Konten Utama Hero Section */
+.hero-content {
+    /* Posisi relatif agar di atas overlay */
+    position: relative;
+    /* Z-index tinggi */
+    z-index: 1;
+    /* Lebar maksimum konten */
+    max-width: 800px;
+    /* Flexbox untuk penataan vertikal */
+    display: flex;
+    flex-direction: column;
+    /* Penataan di tengah */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Gambar Logo di Hero Section */
+.hero-logo-img {
+    /* Tinggi logo */
+    height: 200px;
+    /* Margin bawah */
+    
+    /* Invert warna (mis. agar putih di latar gelap) */
+    filter: invert(100%);
+}
+
+/* Judul Utama Hero */
+.hero h1 {
+    /* Font heading */
+    font-family: var(--font-heading);
+    /* Ukuran font besar */
+    font-size: 3rem;
+    /* Ketebalan font ekstra */
+    font-weight: 1000;
+    /* Margin bawah */
+    margin-bottom: var(--spacing-);
+    /* Tinggi baris lebih rapat */
+    line-height: 1.2;
+    /* Tinggi minimal untuk menghindari pergeseran tata letak saat konten dimuat */
+    min-height: 4.2rem; 
+}
+
+.typing-target {
+    opacity: 1 !important;
+}
+/* Daftar Poin Keunggulan/Comfort Points */
+.comfort-points {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    align-items: flex-start;
+}
+
+.comfort-points li {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.comfort-points i {
+    color: #00C896;
+    font-size: 1.2rem;
+    margin-right: 8px;
+}
+
+/* Kontainer Tombol CTA Hero */
+.hero-ctas {
+    /* Menggunakan flexbox */
+    display: flex;
+    /* Jarak antar tombol */
+    gap: var(--spacing-lg);
+    margin top: 25px;
+    /* Meratakan tombol di tengah */
+    justify-content: center;
+}
+
+/* ==========================================================================
+   5. About Section (Grid Tata Letak)
+   ========================================================================== */
+
+/* Grid 2 Kolom (Default di Mobile: 1 kolom) */
+.grid-two {
+    /* Menggunakan CSS Grid */
+    display: grid;
+    /* Satu kolom default (untuk mobile) */
+    grid-template-columns: 1fr;
+    /* Jarak antar elemen grid (gap) */
+    gap: var(--spacing-lg);
+    /* Meratakan item grid secara vertikal di tengah */
+    align-items: center;
+}
+
+/* Gambar di About Section */
+.about-image img {
+    /* Memastikan gambar mengambil 100% lebar kolom */
+    width: 100%; 
+    /* Tinggi otomatis */
+    height: auto;
+    /* Sudut membulat */
+    border-radius: 12px;
+    /* Menambahkan bayangan halus */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   6. Packages & Accessories (Cards & Grid)
+   ========================================================================== */
+
+/* Grid untuk Paket dan Aksesori */
+.grid-packages {
+    /* Menggunakan CSS Grid */
+    display: grid;
+    /* Grid responsif: otomatis menyesuaikan kolom dengan lebar minimum 300px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Jarak antar item grid */
+    gap: var(--spacing-md);
+}
+
+/* Grid 3 Kolom (varian) */
+.grid-three {
+    /* Grid responsif: otomatis menyesuaikan kolom dengan lebar minimum 280px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Gaya Kartu (Card) */
+.card {
+    /* Latar belakang putih */
+    background-color: #fff;
+    /* Sudut membulat */
+    border-radius: 10px;
+    /* Bayangan halus */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    /* Memastikan konten (mis. gambar) tidak meluber dari sudut bulat */
+    overflow: hidden;
+    /* Transisi untuk efek hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Flexbox untuk penataan vertikal (media di atas, body di bawah) */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Media (Gambar) pada Kartu */
+.card-media img {
+    /* Memastikan gambar mengambil lebar penuh kartu */
+    width: 100%;
+    /* Tinggi tetap untuk konsistensi visual */
+    height: 220px; 
+    /* Memastikan gambar mengisi area tanpa terdistorsi */
+    object-fit: cover; 
+}
+
+/* Isi (Body) Kartu */
+.card-body {
+    /* Padding internal */
+    padding: var(--spacing-md);
+    /* Memungkinkan body kartu membesar untuk mengisi ruang yang tersedia */
+    flex-grow: 1;
+    /* Flexbox untuk penataan konten internal */
+    display: flex;
+    flex-direction: column;
+    /* Teks rata kiri default */
+    text-align: left;
+}
+
+/* Override Teks Kartu Aksesori */
+.accessory-card .card-body {
+    /* Mengubah perataan teks menjadi tengah khusus untuk kartu aksesori */
+    text-align: center; 
+}
+
+/* ==========================================================================
+   7. Gallery Section (Grid dan Slider)
+   ========================================================================== */
+
+/* Grid untuk Galeri */
+.grid-gallery {
+    /* Menggunakan CSS Grid */
+    display: grid;
+    /* Grid responsif: otomatis menyesuaikan kolom dengan lebar minimum 250px */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Jarak antar gambar */
+    gap: 1rem;
+}
+
+/* Item Gambar di Galeri */
+.gallery-item img {
+    /* Memastikan gambar mengambil lebar penuh item */
+    width: 100%;
+    /* Tinggi tetap untuk konsistensi */
+    height: auto; 
+    /* Memastikan gambar mengisi area tanpa terdistorsi */
+    object-fit: cover;
+}
+
+/* Track Slider (Wadah Horizontal) */
+.slider-track {
+    /* Menggunakan flexbox untuk tata letak horizontal */
+    display: flex;
+    /* Jarak antar slide */
+    gap: 1rem;
+    /* Lebar maksimum berdasarkan konten, memungkinkan overflow horizontal */
+    width: max-content;
+}
+
+/* Slide Tunggal */
+.slide {
+    /* Mencegah slide menyusut */
+    flex-shrink: 0;
+    /* Lebar tetap slide */
+    width: 300px;
+    /* Tinggi tetap slide */
+    height: 200px;
+    /* Sudut membulat */
+    border-radius: 8px;
+    /* Memastikan gambar tidak meluber */
+    overflow: hidden;
+}
+
+/* Gambar di dalam Slide */
+.slide img {
+    /* Memastikan gambar mengisi seluruh area slide */
+    width: 100%;
+    height: 100%;
+    /* Memastikan gambar mengisi area tanpa terdistorsi */
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   8. Contact Map (Peta Kontak)
+   ========================================================================== */
+
+/* Pembungkus Peta (Map Wrap) */
+.map-wrap {
+    /* Menetapkan tinggi wadah peta */
+    height: 400px;
+    /* Sudut membulat */
+    border-radius: 8px;
+    /* Memastikan iframe tidak meluber */
+    overflow: hidden;
+    /* Menambahkan bayangan */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Iframe Peta */
+.map-wrap iframe {
+    /* Memastikan iframe mengisi 100% lebar dan tinggi dari .map-wrap */
+    width: 100%;
+    height: 100%;
+    /* Menghilangkan border default iframe */
+    border: none;
+}
+
+/* ==========================================================================
+   9. Animasi Reveal (Saat Elemen Masuk Viewport)
+   ========================================================================== */
+
+/* Gaya Default (Tersembunyi) */
+.reveal { 
+    /* Awalnya tidak terlihat */
+    opacity: 0; 
+    /* Transisi halus untuk opacity dan transform */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+}
+
+/* Posisi Awal Animasi Fade In Up/Staggered */
+.reveal.fade-in-up, .reveal-staggered { 
+    /* Bergeser 50px ke bawah */
+    transform: translateY(50px); 
+}
+
+/* Gaya Saat Animasi Aktif (Terlihat) */
+.reveal.active.fade-in-up, .reveal.active .reveal-staggered { 
+    /* Opacity menjadi penuh */
+    opacity: 1; 
+    /* Kembali ke posisi awal (y=0) */
+    transform: translateY(0); 
+    /* Menerapkan delay untuk efek staggered/bertahap */
+    transition-delay: var(--stagger-delay, 0s); 
+}
+
+/* Posisi Awal Animasi Fade In Down */
+.reveal.fade-in-down { 
+    /* Bergeser 50px ke atas */
+    transform: translateY(-50px); 
+}
+/* Gaya Aktif Fade In Down */
+.reveal.active.fade-in-down { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+/* Posisi Awal Animasi Fade In Left */
+.reveal.fade-in-left { 
+    /* Bergeser 50px ke kanan */
+    transform: translateX(-50px); 
+}
+/* Gaya Aktif Fade In Left */
+.reveal.active.fade-in-left { 
+    opacity: 1; 
+    transform: translateX(0); 
+}
+
+/* Posisi Awal Animasi Fade In Right */
+.reveal.fade-in-right { 
+    /* Bergeser 50px ke kiri */
+    transform: translateX(50px); 
+}
+/* Gaya Aktif Fade In Right */
+.reveal.active.fade-in-right { 
+    opacity: 1; 
+    transform: translateX(0); 
+}
+
+
+/* ==========================================================================
+   10. Media Queries (Responsif)
+   ========================================================================== */
+
+/* Desktop (Lebar minimum 768px) */
+@media (min-width: 768px) {
+    /* Grid 2 kolom diubah menjadi 1:1 */
+    .grid-two { grid-template-columns: 1fr 1fr; }
+    /* Grid Promo diubah menjadi 1:1 (asumsi .promo-content memiliki properti grid) */
+    .promo-content { grid-template-columns: 1fr 1fr; }
+    /* Grid Info Kontak diubah menjadi 1.5:2 (info lebih sempit, peta lebih lebar) */
+    .contact-info-map { grid-template-columns: 1.5fr 2fr; }
+    /* Ukuran Judul Hero diperbesar */
+    .hero h1 { font-size: 4.5rem; }
+}
+
+/* Tablet (Lebar maksimum 1024px) */
+@media (max-width: 1024px) {
+    /* Menu Navigasi Samping untuk Mobile/Tablet */
+    .nav-links {
+        /* Posisi tetap */
+        position: fixed; 
+        top: 0; 
+        /* Awalnya tersembunyi di luar layar (250px) */
+        right: -300px; 
+        /* Lebar menu samping */
+        width: 250px; 
+        /* Tinggi penuh viewport */
+        height: 100vh;
+        /* Latar belakang gelap */
+        background-color: var(--color-light); 
+        /* Padding */
+        padding: 6rem 1rem 1rem;
+        /* Tata letak vertikal */
+        display: flex; 
+        flex-direction: column; 
+        /* Transisi untuk efek buka-tutup */
+        transition: right 0.4s ease;
+        /* Bayangan samping */
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    }
+    /* Posisi Menu Navigasi Saat Aktif */
+    .nav-links.active { 
+        /* Menampilkan menu */
+        right: 0; 
+    }
+    /* Gaya Tautan di Menu Mobile */
+    .nav-links a { 
+        /* Warna teks terang */
+        color: var(--color-light) !important; 
+        /* Menghilangkan margin horizontal */
+        margin: 0; 
+        /* Padding vertikal */
+        padding: 0.75rem 0; 
+        /* Border bawah tipis */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    }
+    /* Menampilkan Tombol Toggle (Hamburger) */
+    .nav-toggle { 
+        display: block; 
+    }
+    /* Warna Tombol Toggle saat Navbar di-scroll (untuk kontras) */
+    .navbar.scrolled .nav-toggle { 
+        color: var(--color-dark); 
+    }
+}
+
+/* Smartphone (Lebar maksimum 576px) */
+@media (max-width: 576px) {
+    /* Ukuran Judul Hero dikecilkan untuk mobile */
+    .hero h1 { 
+        font-size: 2rem; 
+    }
+    /* Comfort Points diubah menjadi tumpukan vertikal */
+    .comfort-points { 
+        flex-direction: column; 
+        gap: 0.5rem; 
+    }
+    /* Tombol CTA Hero diubah menjadi tumpukan vertikal */
+    .hero-ctas { 
+        flex-direction: column; 
+        gap: var(--spacing-sm); 
+    }
+    /* Tombol mengambil lebar penuh di mobile */
+    .btn { 
+        width: 100%; 
+    }
+    /* Grid 3 kolom dan Packages diubah menjadi 1 kolom di mobile */
+    .grid-three { 
+        grid-template-columns: 1fr; 
+    } 
+    .grid-packages { 
+        grid-template-columns: 1fr; 
+    }
+}
+
+.trust-badge {
+  text-align: center;           /* Semua isi jadi rata tengah */
+  padding: 60px 0;              /* Biar ada ruang */
+}
+
+.trust-counter {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 5px;                     /* Jarak kecil antara angka & tanda + */
+  font-size: 4rem;              /* Besarkan angkanya */
+  font-weight: 800;             /* Tebalkan angka */
+  color: var(--adventora-primary);
+}
+
+.count-number {
+  font-size: 4rem;              /* Besar angka */
+  font-weight: 800;
+}
+
+.count-plus {
+  font-size: 3rem;              /* Tanda + sedikit lebih kecil */
+  font-weight: 700;
+}
+
+.trust-text {
+  margin-top: 10px;
+  font-size: 1rem;              /* Tulisan kecil */
+  opacity: 0.85;
+}
+
+
+.fade-in-right.show,
+.fade-in-left.show,
+.reveal.show {
+    opacity: 1;
+    transform: none;
+}
+
+.button-group {
+  /* 1. Mengaktifkan Flexbox */
+  display: flex;
+  
+  /* 2. Mengatur tombol berjejer vertikal (atas-bawah) */
+  flex-direction: column;
+  
+  /* 3. Menengahkan tombol secara horizontal */
+  align-items: center; 
+  
+  /* 4. Memberi jarak (gap) antar tombol */
+  gap: 10px; 
+  
+  /* Opsional: Sesuaikan jarak dari elemen lain di atas/bawah */
+  padding: 20px 0; 
+}
+
+.button-group .btn {
+  /* 5. Mengatur lebar tombol agar tidak selebar kontainer (Jika tidak diatur, align-items: center tidak berfungsi karena tombol 100% lebar) */
+  width: 500px; /* Gunakan lebar tetap yang Anda inginkan, misalnya 200px */
+  max-width: 80%; /* Agar responsif di layar kecil, tombol tidak melebihi 80% lebar layar */
+  
+  /* Pastikan tombol adalah elemen inline-block agar bisa diatur lebarnya */
+  display: inline-block; 
+  
+  /* Opsional: Membuat teks di dalam tombol rata tengah */
+  text-align: center;
+}
+
+.testimonials {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+#testiSlider {
+  position: relative;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+}
+
+.testi-item {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.testi-item.active {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
+}
+.testi-item {
+  text-align: center;
+}
+
+.testi-item img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;   /* biar wajah nggak gepeng */
+  border-radius: 50%;  /* bikin bulat */
+  display: block;
+  margin: 0 auto 15px; /* posisi tengah */
+}
+
+.testi-item {
+  text-align: center;
+}
+
+.testi-stars {
+  font-size: 32px;
+  color: var(--color-dark); /* warna emas */
+  margin-bottom: 15px;
+}
+
+/* ===== Slider Logo ===== */
+.partners-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+}
+
+.partners-slider::-webkit-scrollbar {
+  display: none;
+}
+.partners-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.partner-item img {
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.partner-item img:hover {
+  transform: scale(1.1);
+}
+
+/* ===== Rute zig-zag ===== */
+.routes-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.route-card {
+  padding: 15px 25px;
+  font-size: 1.2rem; /* agak besar */
+  font-weight: 600;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  max-width: 60%;
+}
+
+.route-card.left {
+  align-self: flex-start;
+}
+
+.route-card.right {
+  align-self: flex-end;
+  background-color: #d1e7dd;
+}
+
+.route-card i {
+  margin-right: 10px;
+  color: #007bff;
+}
+/* ===============================
+   Gallery Slider Container
+   =============================== */
+/* ===============================
+   GALLERY SLIDER FIXED VERSION
+   =============================== */
+
+.gallery-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Track (wrapper semua slide) */
+#gallerySlider {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  gap: 0;
+}
+
+/* Slide */
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e8fefb; /* warna background biar rapi */
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Gambar dalam slide */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* biar gambar rapi, tidak ketarik */
+  display: block;
+}
+
+/* ===============================
+   Responsive Height
+   =============================== */
+
+@media (max-width: 1024px) {
+  .slide { height: 220px; }
+}
+
+@media (max-width: 768px) {
+  .slide { height: 180px; }
+}
+
+@media (max-width: 480px) {
+  .slide { height: 150px; }
+}
+
+.partners-slider-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
+
+.partners-slider {
+    display: flex;
+    gap: 40px;
+    animation: slide 25s linear infinite;
+}
+
+.partner-item img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.gallery-slider {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+#gallerySlider {
+  display: flex;
+  gap: 10px;
+  animation: slide 20s linear infinite;
+}
+
+.slide {
+  min-width: 300px;
+  height: 180px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* biar ga kezoom aneh */
+  border-radius: 12px;
+}
+
+/* Animasi slider */
+@keyframes slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.routes-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 15px;
+}
+
+/* Card dasar */
+.route-card {
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #052735;
+  background: #02488568 ;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+/* Ikon */
+.route-card i {
+  font-size: 1.2rem;
+}
+
+/* Posisi kiri-kanan */
+.route-card.left { 
+  justify-self: start;
+  width: 85%;
+}
+
+.route-card.right { 
+  justify-self: end;
+  width: 85%;
+}
+
+/* Responsif HP */
+@media (max-width: 600px) {
+  .route-card {
+    width: 100% !important;
+    justify-self: center;
+    font-size: 0.95rem;
+  }
+}
+.routes-cta {
+  text-align: center;
+  margin-top: 35px; /* jarak biar ga nempel */
+}
+
+/* Mobile menu default (tersembunyi di kanan) */
+.nav-links {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(12px);
+  padding: 90px 25px 20px;
+  border-left: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  transform: translateX(100%);
+  transition: transform 0.35s ease;
+  z-index: 9999;
+}
+
+/* Menu muncul */
+.nav-links.open {
+  transform: translateX(0);
+}
+
+/* Icon hamburger */
+.nav-toggle i {
+  font-size: 24px;
+  color: #000;
+  transition: 0.3s ease;
+}
+
+.contact-section {
+  width: 100%;
+  padding: 20px;
+}
+
+.contact-box {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+}
+
+.contact-box h3 {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.contact-info p,
+.contact-info a {
+  margin: 6px 0;
+  font-size: 1rem;
+  color: #000;
+}
+
+.map-box iframe {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+
+/* Container dropdown */
+.dropdown-group {
+    position: relative;
+    display: inline-block;
+    width: 100%; /* biar dropdown ikut lebar navbar */
+}
+
+/* Tombol dropdown */
+.dropdown-toggle {
+    background-color: #0C969C;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;          /* tombol full width */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Arrow */
+.dropdown-toggle .arrow {
+    transition: transform 0.3s ease;
+}
+
+/* Panel dropdown (hidden default) */
+.dropdown-panel {
+    max-height: 0;           
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    position: relative;      /* relatif supaya nempel di bawah tombol */
+    width: 100%;             /* ikut lebar dropdown-group/navbar */
+    background-color: #f9f9f9;
+    border-radius: 0 0 6px 6px; /* rounded cuma bawah */
+    padding: 0;              
+    z-index: 100;
+    box-shadow: none;        /* bisa hapus shadow biar rapi nempel */
+}
+
+/* Link item */
+.dropdown-panel a {
+    display: block;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-panel a:hover {
+    background-color: #e0f7fa;
+}
+
+/* Saat aktif/tampil */
+.dropdown-panel.show {
+    max-height: 500px;       
+    padding: 8px 0;
+}
+
+/* Rotate arrow saat aktif */
+.dropdown-toggle.active .arrow {
+    transform: rotate(180deg);
+}
+/* =========================================
+   FIX MENU NAVBAR ONLY
+   TANPA UBAH DESIGN LAIN
+   Tempel di PALING BAWAH CSS
+========================================= */
+
+
+/* =========================
+   DESKTOP MENU
+========================= */
+
+@media (min-width: 1025px){
+
+    .nav-links{
+
+        position: static;
+
+        display: flex;
+
+        flex-direction: row;
+
+        align-items: center;
+
+        gap: 20px;
+
+        width: auto;
+
+        height: auto;
+
+        padding: 0;
+
+        background: transparent;
+
+        transform: none !important;
+
+        overflow: visible;
+
+        box-shadow: none;
+
+        border: none;
+    }
+
+    .nav-toggle{
+        display: none;
+    }
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+@media (max-width: 1024px){
+
+    .nav-links{
+
+        position: fixed;
+
+        top: 0;
+
+        right: 0;
+
+        width: 260px;
+
+        height: 100vh;
+
+        padding: 100px 25px 30px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
+
+        background: rgba(111, 255, 233, 0.96);
+
+        backdrop-filter: blur(14px);
+
+        border-left: 1px solid rgba(0,0,0,0.08);
+
+        transform: translateX(100%);
+
+        transition: transform 0.35s ease;
+
+        overflow-y: auto;
+
+        z-index: 9999;
+    }
+
+    /* MENU ACTIVE */
+    .nav-links.active,
+    .nav-links.open{
+
+        transform: translateX(0);
+    }
+
+    /* LINK */
+    .nav-links a{
+
+        color: var(--color-dark) !important;
+
+        margin: 0;
+
+        width: 100%;
+
+        padding: 10px 0;
+
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+
+        font-weight: 600;
+    }
+
+    /* HOVER */
+    .nav-links a:hover{
+
+        color: var(--color-secondary) !important;
+    }
+
+    /* HAMBURGER */
+    .nav-toggle{
+
+        display: block;
+
+        background: none;
+
+        border: none;
+
+        cursor: pointer;
+
+        z-index: 10001;
+    }
+
+    .nav-toggle i{
+
+        font-size: 26px;
+
+        color: white;
+    }
+
+    .navbar.scrolled .nav-toggle i{
+
+        color: var(--color-dark);
+    }
+}

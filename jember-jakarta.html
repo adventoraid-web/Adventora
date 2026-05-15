@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Travel Jember Jakarta Executive | Adventora</title>
+
+<meta name="description" content="Travel executive Jember Jakarta dengan sistem antar jemput alamat, kursi nyaman, armada premium dan pelayanan profesional.">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#0b1120;
+color:white;
+overflow-x:hidden;
+}
+
+/* BACKGROUND EFFECT */
+
+.bg-glow{
+position:fixed;
+width:700px;
+height:700px;
+background:radial-gradient(circle,#2563eb55 0%,transparent 70%);
+top:-200px;
+right:-200px;
+z-index:-1;
+filter:blur(40px);
+}
+
+.bg-glow2{
+position:fixed;
+width:500px;
+height:500px;
+background:radial-gradient(circle,#06b6d455 0%,transparent 70%);
+bottom:-150px;
+left:-150px;
+z-index:-1;
+filter:blur(40px);
+}
+
+/* NAVBAR */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:999;
+background:rgba(10,15,35,0.7);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.navbar{
+max-width:1200px;
+margin:auto;
+padding:18px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:30px;
+font-weight:800;
+text-decoration:none;
+color:white;
+letter-spacing:1px;
+}
+
+.logo span{
+color:#38bdf8;
+}
+
+.nav-links{
+display:flex;
+gap:35px;
+}
+
+.nav-links a{
+color:#dbeafe;
+text-decoration:none;
+font-weight:500;
+position:relative;
+}
+
+.nav-links a::after{
+content:'';
+position:absolute;
+bottom:-6px;
+left:0;
+width:0;
+height:2px;
+background:#38bdf8;
+transition:0.3s;
+}
+
+.nav-links a:hover::after{
+width:100%;
+}
+
+.nav-toggle{
+display:none;
+font-size:28px;
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+padding:150px 20px 100px;
+}
+
+.hero-wrap{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 450px;
+gap:60px;
+align-items:center;
+}
+
+.badge{
+display:inline-block;
+padding:10px 18px;
+background:#172554;
+border:1px solid #2563eb;
+border-radius:999px;
+font-size:14px;
+margin-bottom:25px;
+color:#93c5fd;
+}
+
+.hero h1{
+font-size:72px;
+line-height:1;
+margin-bottom:30px;
+font-weight:900;
+}
+
+.hero h1 span{
+background:linear-gradient(to right,#38bdf8,#60a5fa);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+font-size:19px;
+color:#cbd5e1;
+max-width:700px;
+margin-bottom:35px;
+line-height:1.8;
+}
+
+.hero-stats{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+margin-bottom:40px;
+}
+
+.stat{
+padding:18px 22px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:16px;
+}
+
+.stat strong{
+display:block;
+font-size:22px;
+margin-bottom:5px;
+}
+
+.hero-buttons{
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:16px 30px;
+border-radius:14px;
+font-weight:700;
+text-decoration:none;
+transition:0.3s;
+display:inline-flex;
+align-items:center;
+gap:10px;
+}
+
+.btn-primary{
+background:#2563eb;
+color:white;
+}
+
+.btn-primary:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 30px rgba(37,99,235,0.4);
+}
+
+.btn-outline{
+border:1px solid #38bdf8;
+color:#38bdf8;
+}
+
+.btn-outline:hover{
+background:#38bdf8;
+color:#0f172a;
+}
+
+/* BOOKING CARD */
+
+.booking-box{
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(18px);
+padding:35px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.booking-box h2{
+font-size:32px;
+margin-bottom:25px;
+}
+
+.input-group{
+margin-bottom:18px;
+}
+
+.input-group input,
+.input-group select{
+width:100%;
+padding:16px;
+background:#0f172a;
+border:1px solid #1e293b;
+border-radius:12px;
+color:white;
+font-size:15px;
+outline:none;
+}
+
+.input-group input:focus,
+.input-group select:focus{
+border-color:#38bdf8;
+}
+
+.submit-btn{
+width:100%;
+padding:18px;
+background:linear-gradient(to right,#2563eb,#38bdf8);
+border:none;
+border-radius:14px;
+color:white;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+transition:0.3s;
+}
+
+.submit-btn:hover{
+transform:translateY(-3px);
+}
+
+/* SECTION */
+
+.section{
+padding:100px 20px;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+}
+
+.section-title{
+font-size:52px;
+text-align:center;
+margin-bottom:20px;
+}
+
+.section-desc{
+text-align:center;
+max-width:700px;
+margin:auto;
+color:#94a3b8;
+margin-bottom:60px;
+line-height:1.8;
+}
+
+/* CARDS */
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.feature-card{
+background:#111827;
+padding:35px;
+border-radius:24px;
+border:1px solid rgba(255,255,255,0.05);
+transition:0.3s;
+}
+
+.feature-card:hover{
+transform:translateY(-8px);
+border-color:#2563eb;
+}
+
+.feature-card i{
+font-size:45px;
+margin-bottom:22px;
+color:#38bdf8;
+}
+
+.feature-card h3{
+margin-bottom:15px;
+font-size:24px;
+}
+
+.feature-card p{
+color:#94a3b8;
+line-height:1.7;
+}
+
+/* SCHEDULE */
+
+.schedule-wrap{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+gap:30px;
+}
+
+.schedule-card{
+background:#111827;
+padding:40px;
+border-radius:28px;
+}
+
+.schedule-card h3{
+font-size:30px;
+margin-bottom:25px;
+}
+
+.schedule-item{
+display:flex;
+justify-content:space-between;
+padding:18px 0;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.price{
+margin-top:30px;
+font-size:34px;
+font-weight:800;
+color:#38bdf8;
+}
+
+/* CTA */
+
+.cta{
+padding:110px 20px;
+text-align:center;
+background:linear-gradient(135deg,#1d4ed8,#0f172a);
+}
+
+.cta h2{
+font-size:60px;
+margin-bottom:20px;
+}
+
+.cta p{
+max-width:700px;
+margin:auto;
+color:#dbeafe;
+line-height:1.8;
+margin-bottom:40px;
+font-size:18px;
+}
+
+/* FOOTER */
+
+footer{
+padding:40px 20px;
+text-align:center;
+color:#94a3b8;
+border-top:1px solid rgba(255,255,255,0.08);
+}
+
+/* MOBILE */
+
+@media(max-width:992px){
+
+.hero-wrap{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:48px;
+}
+
+.nav-toggle{
+display:block;
+}
+
+.nav-links{
+position:absolute;
+top:100%;
+left:0;
+width:100%;
+background:#0f172a;
+flex-direction:column;
+padding:25px;
+display:none;
+}
+
+.nav-links.active{
+display:flex;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg-glow"></div>
+<div class="bg-glow2"></div>
+
+<header>
+
+<div class="navbar">
+
+<a href="#" class="logo">
+Adventora<span>.</span>
+</a>
+
+<div class="nav-links" id="navLinks">
+<a href="#layanan">Layanan</a>
+<a href="#jadwal">Jadwal</a>
+<a href="#booking">Booking</a>
+<a href="#kontak">Kontak</a>
+</div>
+
+<div class="nav-toggle" id="navToggle">
+<i class="fas fa-bars"></i>
+</div>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-wrap">
+
+<div>
+
+<div class="badge">
+<i class="fas fa-star"></i>
+Travel Executive Jember ⇆ Jakarta
+</div>
+
+<h1>
+Travel <span>Premium</span><br>
+Jember Jakarta
+</h1>
+
+<p>
+Perjalanan jauh kini lebih nyaman dengan layanan travel executive door to door dari Adventora. Nikmati armada eksklusif, kursi nyaman, dan pelayanan profesional untuk perjalanan Jember menuju Jakarta maupun sebaliknya.
+</p>
+
+<div class="hero-stats">
+
+<div class="stat">
+<strong>24 Jam</strong>
+Customer Support
+</div>
+
+<div class="stat">
+<strong>Door to Door</strong>
+Jemput Langsung
+</div>
+
+<div class="stat">
+<strong>Everyday</strong>
+Berangkat Harian
+</div>
+
+</div>
+
+<div class="hero-buttons">
+
+<a href="#booking" class="btn btn-primary">
+<i class="fab fa-whatsapp"></i>
+Booking Sekarang
+</a>
+
+<a href="#jadwal" class="btn btn-outline">
+<i class="fas fa-calendar"></i>
+Lihat Jadwal
+</a>
+
+</div>
+
+</div>
+
+<div class="booking-box" id="booking">
+
+<h2>Booking Travel</h2>
+
+<form id="bookingForm">
+
+<div class="input-group">
+<input type="text" id="nama" placeholder="Nama Lengkap" required>
+</div>
+
+<div class="input-group">
+<input type="text" id="alamat" placeholder="Alamat Penjemputan" required>
+</div>
+
+<div class="input-group">
+<input type="text" id="tujuan" placeholder="Alamat Tujuan" required>
+</div>
+
+<div class="input-group">
+<input type="date" id="tanggal" required>
+</div>
+
+<div class="input-group">
+<select id="seat" required>
+<option value="">Jumlah Penumpang</option>
+<option>1 Orang</option>
+<option>2 Orang</option>
+<option>3 Orang</option>
+<option>4 Orang</option>
+</select>
+</div>
+
+<button type="submit" class="submit-btn">
+<i class="fab fa-whatsapp"></i>
+Pesan via WhatsApp
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="layanan">
+
+<div class="container">
+
+<h2 class="section-title">
+Kenapa Pilih Adventora?
+</h2>
+
+<p class="section-desc">
+Kami menghadirkan pengalaman perjalanan antar kota yang nyaman, aman, dan profesional dengan sistem antar jemput langsung dari lokasi Anda.
+</p>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<i class="fas fa-route"></i>
+<h3>Door to Door</h3>
+<p>
+Tidak perlu datang ke terminal atau pool. Driver akan menjemput langsung ke alamat Anda.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fas fa-couch"></i>
+<h3>Kursi Nyaman</h3>
+<p>
+Armada bersih, reclining seat, full AC dan nyaman untuk perjalanan jarak jauh.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fas fa-user-shield"></i>
+<h3>Driver Profesional</h3>
+<p>
+Driver berpengalaman dengan pelayanan ramah dan mengutamakan keselamatan penumpang.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fas fa-clock"></i>
+<h3>Jadwal Fleksibel</h3>
+<p>
+Tersedia keberangkatan setiap hari dengan pilihan jam yang lebih fleksibel.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="jadwal">
+
+<div class="container">
+
+<h2 class="section-title">
+Jadwal & Tarif
+</h2>
+
+<p class="section-desc">
+Harga transparan tanpa biaya tersembunyi dengan layanan travel executive premium.
+</p>
+
+<div class="schedule-wrap">
+
+<div class="schedule-card">
+
+<h3>Jember → Jakarta</h3>
+
+<div class="schedule-item">
+<span>Sore</span>
+<strong>15:00 WIB</strong>
+</div>
+
+
+<div class="schedule-card">
+
+<h3>Jakarta → Jember</h3>
+
+<div class="schedule-item">
+<span>Pagi</span>
+<strong>09:00 WIB</strong>
+</div>
+
+<div class="schedule-item">
+<span>Malam</span>
+<strong>21:00 WIB</strong>
+</div>
+
+<div class="price">
+Rp 750.000
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="cta" id="kontak">
+
+<h2>
+Siap Berangkat Hari Ini?
+</h2>
+
+<p>
+Hubungi admin Adventora sekarang juga dan dapatkan layanan travel nyaman Jember Jakarta dengan sistem antar jemput langsung.
+</p>
+
+<a href="https://wa.me/6281217241263" target="_blank" class="btn btn-primary">
+<i class="fab fa-whatsapp"></i>
+Hubungi WhatsApp
+</a>
+
+</section>
+
+<footer>
+© 2026 Adventora Travel — Travel Executive Jember Jakarta
+</footer>
+
+<script>
+
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+
+navToggle.addEventListener('click',()=>{
+
+navLinks.classList.toggle('active');
+
+const icon = navToggle.querySelector('i');
+
+if(navLinks.classList.contains('active')){
+icon.classList.replace('fa-bars','fa-times');
+}else{
+icon.classList.replace('fa-times','fa-bars');
+}
+
+});
+
+document.addEventListener('click',(e)=>{
+
+const isMenu = navLinks.contains(e.target);
+const isButton = navToggle.contains(e.target);
+
+if(!isMenu && !isButton){
+
+navLinks.classList.remove('active');
+
+const icon = navToggle.querySelector('i');
+
+icon.classList.add('fa-bars');
+icon.classList.remove('fa-times');
+
+}
+
+});
+
+document.querySelectorAll('.nav-links a').forEach(link=>{
+
+link.addEventListener('click',()=>{
+
+navLinks.classList.remove('active');
+
+const icon = navToggle.querySelector('i');
+
+icon.classList.add('fa-bars');
+icon.classList.remove('fa-times');
+
+});
+
+});
+
+document.getElementById('bookingForm').addEventListener('submit',function(e){
+
+e.preventDefault();
+
+const nama = document.getElementById('nama').value;
+const alamat = document.getElementById('alamat').value;
+const tujuan = document.getElementById('tujuan').value;
+const tanggal = document.getElementById('tanggal').value;
+const seat = document.getElementById('seat').value;
+
+let pesan = `Halo Adventora Travel,%0A%0ASaya ingin booking travel Jember ⇆ Jakarta.%0A%0A`;
+pesan += `Nama: ${nama}%0A`;
+pesan += `Alamat Jemput: ${alamat}%0A`;
+pesan += `Alamat Tujuan: ${tujuan}%0A`;
+pesan += `Tanggal: ${tanggal}%0A`;
+pesan += `Jumlah Penumpang: ${seat}%0A`;
+
+window.open(`https://wa.me/6281217241263?text=${pesan}`,'_blank');
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Travel Malang ⇆ Jakarta | Door To Door Premium</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#f8fafc;
+  color:#0f172a;
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* NAVBAR */
+
+.navbar{
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:999;
+  background:white;
+  box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+
+.nav-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 0;
+}
+
+.brand{
+  font-size:30px;
+  font-weight:bold;
+  color:#2563eb;
+}
+
+.nav-links{
+  display:flex;
+  gap:28px;
+  align-items:center;
+}
+
+.nav-links a{
+  font-weight:600;
+}
+
+.nav-links a:hover{
+  color:#2563eb;
+}
+
+.nav-btn{
+  background:#2563eb;
+  color:white;
+  padding:12px 24px;
+  border-radius:12px;
+}
+
+.nav-toggle{
+  display:none;
+  background:none;
+  border:none;
+  font-size:28px;
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  background:
+  linear-gradient(rgba(15,23,42,.55), rgba(15,23,42,.65)),
+  url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600&auto=format&fit=crop') center/cover;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:40px;
+  align-items:center;
+}
+
+.hero-text{
+  color:white;
+}
+
+.hero-text h1{
+  font-size:64px;
+  line-height:1.2;
+  margin-bottom:24px;
+}
+
+.hero-text span{
+  color:#60a5fa;
+}
+
+.hero-text p{
+  font-size:20px;
+  line-height:1.8;
+  color:#e2e8f0;
+  margin-bottom:35px;
+}
+
+.hero-badge{
+  display:inline-flex;
+  gap:10px;
+  align-items:center;
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(10px);
+  padding:12px 18px;
+  border-radius:50px;
+  margin-bottom:24px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:16px 30px;
+  border-radius:14px;
+  font-weight:bold;
+  transition:.3s;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+
+.btn-primary{
+  background:#2563eb;
+  color:white;
+}
+
+.btn-primary:hover{
+  transform:translateY(-5px);
+}
+
+.btn-light{
+  background:white;
+  color:#0f172a;
+}
+
+/* FLOATING FORM */
+
+.floating-booking{
+  background:white;
+  padding:35px;
+  border-radius:24px;
+  box-shadow:0 20px 60px rgba(0,0,0,.2);
+}
+
+.floating-booking h2{
+  margin-bottom:10px;
+  font-size:32px;
+}
+
+.floating-booking p{
+  color:#64748b;
+  margin-bottom:28px;
+}
+
+.booking-form{
+  display:grid;
+  gap:18px;
+}
+
+.booking-form input{
+  padding:18px;
+  border-radius:12px;
+  border:1px solid #cbd5e1;
+  outline:none;
+  font-size:16px;
+}
+
+.submit-btn{
+  border:none;
+  cursor:pointer;
+  font-size:17px;
+}
+
+/* FEATURES */
+
+section{
+  padding:100px 0;
+}
+
+.section-title{
+  text-align:center;
+  font-size:42px;
+  margin-bottom:16px;
+}
+
+.section-sub{
+  text-align:center;
+  color:#64748b;
+  margin-bottom:60px;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.feature-card{
+  background:white;
+  padding:35px;
+  border-radius:22px;
+  box-shadow:0 5px 30px rgba(0,0,0,.05);
+  transition:.3s;
+}
+
+.feature-card:hover{
+  transform:translateY(-6px);
+}
+
+.feature-card i{
+  font-size:42px;
+  color:#2563eb;
+  margin-bottom:20px;
+}
+
+.feature-card h3{
+  margin-bottom:15px;
+}
+
+.feature-card p{
+  color:#64748b;
+  line-height:1.7;
+}
+
+/* SCHEDULE */
+
+.schedule-wrapper{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+}
+
+.schedule-card{
+  background:#0f172a;
+  color:white;
+  padding:35px;
+  border-radius:24px;
+}
+
+.schedule-card h3{
+  margin-bottom:28px;
+  color:#60a5fa;
+}
+
+.schedule-item{
+  display:flex;
+  justify-content:space-between;
+  padding:16px 0;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.price{
+  margin-top:25px;
+  font-size:30px;
+  font-weight:bold;
+  color:#60a5fa;
+}
+
+/* CTA */
+
+.cta-section{
+  background:#2563eb;
+  color:white;
+  text-align:center;
+  border-radius:30px;
+  padding:70px 30px;
+}
+
+.cta-section h2{
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+.cta-section p{
+  max-width:700px;
+  margin:auto;
+  line-height:1.8;
+  margin-bottom:30px;
+}
+
+/* FOOTER */
+
+footer{
+  padding:40px 0;
+  text-align:center;
+  color:#64748b;
+}
+
+/* MOBILE */
+
+@media(max-width:992px){
+
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding-top:120px;
+    padding-bottom:80px;
+  }
+
+  .hero-text h1{
+    font-size:44px;
+  }
+
+  .nav-toggle{
+    display:block;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:white;
+    flex-direction:column;
+    padding:30px;
+    display:none;
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+
+<div class="container nav-inner">
+
+<a href="#" class="brand"></a>
+
+<nav class="nav-links" id="navLinks">
+
+<a href="#home" class="nav-item">Home</a>
+<a href="#fitur" class="nav-item">Layanan</a>
+<a href="#jadwal" class="nav-item">Jadwal</a>
+<a href="#booking" class="nav-item">Booking</a>
+
+<a href="https://wa.me/6281217241263" class="nav-btn">
+WhatsApp
+</a>
+
+</nav>
+
+<button class="nav-toggle" id="navToggle">
+<i class="fas fa-bars"></i>
+</button>
+
+</div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="container hero-grid">
+
+<div class="hero-text">
+
+<div class="hero-badge">
+<i class="fas fa-star"></i>
+<span>Travel Premium Door To Door</span>
+</div>
+
+<h1>
+Travel <span>Malang ⇆ Jakarta</span><br>
+Nyaman Tanpa Ribet
+</h1>
+
+<p>
+Layanan travel antar kota dengan sistem jemput langsung dari rumah,
+armada nyaman, dan driver profesional untuk perjalanan jauh.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#booking" class="btn btn-primary">
+<i class="fas fa-ticket"></i>
+Booking Sekarang
+</a>
+
+<a href="#jadwal" class="btn btn-light">
+<i class="fas fa-clock"></i>
+Lihat Jadwal
+</a>
+
+</div>
+
+</div>
+
+<!-- FLOATING FORM -->
+
+<div class="floating-booking" id="booking">
+
+<h2>Pesan Kursi</h2>
+
+<p>
+Isi data lalu langsung terhubung ke WhatsApp.
+</p>
+
+<form class="booking-form" id="bookingForm">
+
+<input type="text" id="nama" placeholder="Nama Lengkap" required>
+
+<input type="text" id="jemput" placeholder="Alamat Jemput" required>
+
+<input type="text" id="tujuan" placeholder="Alamat Tujuan" required>
+
+<input type="date" id="tanggal" required>
+
+<input type="number" id="penumpang"
+placeholder="Jumlah Penumpang"
+required>
+
+<button type="submit"
+class="btn btn-primary submit-btn">
+
+<i class="fab fa-whatsapp"></i>
+Booking via WhatsApp
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FITUR -->
+
+<section id="fitur">
+
+<div class="container">
+
+<h2 class="section-title">
+Kenapa Pilih Adventora?
+</h2>
+
+<p class="section-sub">
+Travel nyaman untuk perjalanan bisnis, keluarga, dan mudik.
+</p>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<i class="fas fa-house"></i>
+<h3>Door To Door</h3>
+<p>
+Dijemput langsung dari rumah dan diantar sampai tujuan.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fas fa-car"></i>
+<h3>Armada Nyaman</h3>
+<p>
+Full AC, reclining seat, dan kendaraan rutin perawatan.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fas fa-user-shield"></i>
+<h3>Driver Profesional</h3>
+<p>
+Driver berpengalaman untuk perjalanan lintas kota.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- JADWAL -->
+
+<section id="jadwal">
+
+<div class="container">
+
+<h2 class="section-title">
+Jadwal & Tarif
+</h2>
+
+<p class="section-sub">
+Keberangkatan tersedia setiap hari.
+</p>
+
+<div class="schedule-wrapper">
+
+<div class="schedule-card">
+
+<h3>
+<i class="fas fa-arrow-right"></i>
+Malang → Jakarta
+</h3>
+
+<div class="schedule-item">
+<span>Pagi</span>
+<strong>08:00 WIB</strong>
+</div>
+
+<div class="schedule-item">
+<span>Malam</span>
+<strong>19:00 WIB</strong>
+</div>
+
+<div class="price">
+Rp 500.000
+</div>
+
+</div>
+
+<div class="schedule-card">
+
+<h3>
+<i class="fas fa-arrow-left"></i>
+Jakarta → Malang
+</h3>
+
+<div class="schedule-item">
+<span>Pagi</span>
+<strong>09:00 WIB</strong>
+</div>
+
+<div class="schedule-item">
+<span>Malam</span>
+<strong>20:00 WIB</strong>
+</div>
+
+<div class="price">
+Rp 500.000
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section>
+
+<div class="container">
+
+<div class="cta-section">
+
+<h2>
+Booking Travel Sekarang
+</h2>
+
+<p>
+Nikmati perjalanan nyaman dengan layanan travel premium
+door to door bersama Adventora.
+</p>
+
+<a href="https://wa.me/6281217241263"
+class="btn btn-light">
+
+<i class="fab fa-whatsapp"></i>
+Hubungi WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Adventora Travel — Malang ⇆ Jakarta
+</footer>
+
+<script>
+
+// MENU MOBILE
+
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+
+navToggle.addEventListener('click',()=>{
+
+  navLinks.classList.toggle('active');
+
+  const icon = navToggle.querySelector('i');
+
+  icon.classList.toggle('fa-bars');
+  icon.classList.toggle('fa-times');
+
+});
+
+// AUTO CLOSE
+
+document.querySelectorAll('.nav-item').forEach(link=>{
+
+  link.addEventListener('click',()=>{
+
+    navLinks.classList.remove('active');
+
+    const icon = navToggle.querySelector('i');
+
+    icon.classList.add('fa-bars');
+    icon.classList.remove('fa-times');
+
+  });
+
+});
+
+// CLICK OUTSIDE
+
+document.addEventListener('click',(e)=>{
+
+  const isMenu = navLinks.contains(e.target);
+  const isButton = navToggle.contains(e.target);
+
+  if(!isMenu && !isButton){
+
+    navLinks.classList.remove('active');
+
+    const icon = navToggle.querySelector('i');
+
+    icon.classList.add('fa-bars');
+    icon.classList.remove('fa-times');
+
+  }
+
+});
+
+// FORM WA
+
+const bookingForm = document.getElementById('bookingForm');
+
+bookingForm.addEventListener('submit',(e)=>{
+
+  e.preventDefault();
+
+  const nama = document.getElementById('nama').value;
+  const jemput = document.getElementById('jemput').value;
+  const tujuan = document.getElementById('tujuan').value;
+  const tanggal = document.getElementById('tanggal').value;
+  const penumpang = document.getElementById('penumpang').value;
+
+  let pesan =
+  `Halo Adventora, saya ingin booking travel Malang - Jakarta.%0A%0A`;
+
+  pesan += `Nama: ${nama}%0A`;
+  pesan += `Alamat Jemput: ${jemput}%0A`;
+  pesan += `Alamat Tujuan: ${tujuan}%0A`;
+  pesan += `Tanggal: ${tanggal}%0A`;
+  pesan += `Penumpang: ${penumpang} orang`;
+
+  window.open(`https://wa.me/6281217241263?text=${pesan}`);
+
+});
+
+</script>
+
+</body>
+</html>
