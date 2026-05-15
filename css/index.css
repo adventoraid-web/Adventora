@@ -1241,3 +1241,149 @@ img {
 .dropdown-toggle.active .arrow {
     transform: rotate(180deg);
 }
+/* =========================================
+   FIX MENU NAVBAR ONLY
+   TANPA UBAH DESIGN LAIN
+   Tempel di PALING BAWAH CSS
+========================================= */
+
+
+/* =========================
+   DESKTOP MENU
+========================= */
+
+@media (min-width: 1025px){
+
+    .nav-links{
+
+        position: static;
+
+        display: flex;
+
+        flex-direction: row;
+
+        align-items: center;
+
+        gap: 20px;
+
+        width: auto;
+
+        height: auto;
+
+        padding: 0;
+
+        background: transparent;
+
+        transform: none !important;
+
+        overflow: visible;
+
+        box-shadow: none;
+
+        border: none;
+    }
+
+    .nav-toggle{
+        display: none;
+    }
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+@media (max-width: 1024px){
+
+    .nav-links{
+
+        position: fixed;
+
+        top: 0;
+
+        right: 0;
+
+        width: 260px;
+
+        height: 100vh;
+
+        padding: 100px 25px 30px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
+
+        background: rgba(111, 255, 233, 0.96);
+
+        backdrop-filter: blur(14px);
+
+        border-left: 1px solid rgba(0,0,0,0.08);
+
+        transform: translateX(100%);
+
+        transition: transform 0.35s ease;
+
+        overflow-y: auto;
+
+        z-index: 9999;
+    }
+
+    /* MENU ACTIVE */
+    .nav-links.active,
+    .nav-links.open{
+
+        transform: translateX(0);
+    }
+
+    /* LINK */
+    .nav-links a{
+
+        color: var(--color-dark) !important;
+
+        margin: 0;
+
+        width: 100%;
+
+        padding: 10px 0;
+
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+
+        font-weight: 600;
+    }
+
+    /* HOVER */
+    .nav-links a:hover{
+
+        color: var(--color-secondary) !important;
+    }
+
+    /* HAMBURGER */
+    .nav-toggle{
+
+        display: block;
+
+        background: none;
+
+        border: none;
+
+        cursor: pointer;
+
+        z-index: 10001;
+    }
+
+    .nav-toggle i{
+
+        font-size: 26px;
+
+        color: white;
+    }
+
+    .navbar.scrolled .nav-toggle i{
+
+        color: var(--color-dark);
+    }
+}
