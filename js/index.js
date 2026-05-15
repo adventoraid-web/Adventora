@@ -33,6 +33,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Close menu when clicking a link
   if (navLinks) {
+    // Close menu when clicking outside
+document.addEventListener("click", (e) => {
+
+  const isMenu = navLinks.contains(e.target);
+  const isButton = navToggle.contains(e.target);
+
+  // kalau klik bukan menu & bukan tombol
+  if (!isMenu && !isButton) {
+
+    navLinks.classList.remove("open");
+
+    const icon = navToggle.querySelector("i");
+
+    if (icon) {
+      icon.classList.replace("fa-times", "fa-bars");
+    }
+  }
+});
     navLinks.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("open");

@@ -32,7 +32,24 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+// Tutup menu kalau klik area luar
+document.addEventListener('click', (e) => {
 
+    const isMenu = navLinks.contains(e.target);
+    const isButton = navToggle.contains(e.target);
+
+    if (!isMenu && !isButton) {
+
+        navLinks.classList.remove('active');
+
+        const icon = navToggle.querySelector('i');
+
+        if (icon) {
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-times');
+        }
+    }
+});
     // --- 2. ANIMASI SCROLL ---
     const revealElements = document.querySelectorAll('.reveal');
     if (revealElements.length > 0 && 'IntersectionObserver' in window) {

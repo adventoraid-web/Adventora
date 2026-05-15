@@ -6,31 +6,57 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. NAVIGASI MOBILE (Logika menggunakan observer) ---
-    const mobileMenuBtn = document.getElementById('navToggle');
-    const navBarLinks = document.getElementById('navLinks');
+// --- 1. NAVIGASI MOBILE ---
+const mobileMenuBtn = document.getElementById('navToggle');
+const navBarLinks = document.getElementById('navLinks');
+
+if (mobileMenuBtn && navBarLinks) {
+
     const toggleIcon = mobileMenuBtn.querySelector('i');
 
     const handleMenuToggle = () => {
         navBarLinks.classList.toggle('active');
-        if (navBarLinks.classList.contains('active')) {
-            toggleIcon.classList.replace('fa-bars', 'fa-times');
-        } else {
-            toggleIcon.classList.replace('fa-times', 'fa-bars');
+
+        if (toggleIcon) {
+            if (navBarLinks.classList.contains('active')) {
+                toggleIcon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                toggleIcon.classList.replace('fa-times', 'fa-bars');
+            }
         }
     };
 
     mobileMenuBtn.addEventListener('click', handleMenuToggle);
 
-    // Tutup menu saat link diklik (di mobile)
+    // Tutup menu saat klik link
     document.querySelectorAll('.nav-item').forEach(link => {
         link.addEventListener('click', () => {
-            if (window.innerWidth <= 992) {
-                navBarLinks.classList.remove('active');
-                toggleIcon.classList.replace('fa-times', 'fa-bars');
+            navBarLinks.classList.remove('active');
+
+            if (toggleIcon) {
+                toggleIcon.classList.add('fa-bars');
+                toggleIcon.classList.remove('fa-times');
             }
         });
     });
+
+    // Tutup menu saat klik luar area
+    document.addEventListener('click', (e) => {
+
+        const isMenu = navBarLinks.contains(e.target);
+        const isButton = mobileMenuBtn.contains(e.target);
+
+        if (!isMenu && !isButton && navBarLinks.classList.contains('active')) {
+
+            navBarLinks.classList.remove('active');
+
+            if (toggleIcon) {
+                toggleIcon.classList.add('fa-bars');
+                toggleIcon.classList.remove('fa-times');
+            }
+        }
+    });
+}
 
     // --- 2. ANIMASI SCROLL DENGAN INTERSECTION OBSERVER (Paling Stabil) ---
     const animatedItems = document.querySelectorAll('.reveal');
